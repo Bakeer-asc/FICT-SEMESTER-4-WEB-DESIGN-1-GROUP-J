@@ -1,11 +1,21 @@
-
-
 /*
-   
-   Login/Register logic for auth.html
+   Login/Register logic for auth.html — now backed by real Firebase Auth.
  */
 
 'use strict';
+
+import { auth, db, googleProvider } from './firebase-init.js';
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  updateProfile,
+} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js';
+import {
+  doc,
+  setDoc,
+  getDoc,
+} from 'https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js';
 
 /* ── Tab Switching ── */
 function switchAuthTab(tab) {
@@ -40,7 +50,7 @@ function clearAuthErrors() {
 function togglePasswordVisibility(inputId, icon) {
   const input = $(inputId);
   if (!input) return;
-  
+
   if (input.type === 'password') {
     input.type = 'text';
     icon.classList.remove('fa-eye');
@@ -52,8 +62,44 @@ function togglePasswordVisibility(inputId, icon) {
   }
 }
 
+/* ── Helper: redirect to the right dashboard ── */
+function goToDashboard(role) {
+  window.location.href = role === 'seller' ? 'seller-dashboard.html' : 'buyer-dashboard.html';
+}
+
+/* ── Helper: map Firebase error codes to friendly field errors ── */
+function handleAuthError(error, context) {
+  const code = error.code || '';
+
+  if (context === 'login') {
+    if (code === 'auth/invalid-credential' || code === 'auth/wrong-password') {
+      showFieldError('loginPassword', 'Incorrect password. Please try again.');
+    } else if (code === 'auth/user-not-found') {
+      showFieldError('loginEmail', 'No account found with this email. Please register first.');
+    } else if (code === 'auth/invalid-email') {
+      showFieldError('loginEmail', 'Please enter a valid email address.');
+    } else if (code === 'auth/too-many-requests') {
+      showToast('Too many attempts. Please wait a moment and try again.');
+    } else {
+      showToast('Sign in failed: ' + error.message);
+    }
+  } else if (context === 'register') {
+    if (code === 'auth/email-already-in-use') {
+      showFieldError('regEmail', 'This email is already registered. Please login instead.');
+    } else if (code === 'auth/invalid-email') {
+      showFieldError('regEmail', 'Please enter a valid email address.');
+    } else if (code === 'auth/weak-password') {
+      showFieldError('regPassword', 'Password must be at least 6 characters.');
+    } else {
+      showToast('Account creation failed: ' + error.message);
+    }
+  } else {
+    showToast('Something went wrong: ' + error.message);
+  }
+}
+
 /* ── Handle Login ── */
-function handleAuthLogin(e) {
+async function handleAuthLogin(e) {
   e.preventDefault();
   clearAuthErrors();
 
@@ -82,35 +128,28 @@ function handleAuthLogin(e) {
   btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Signing in...';
   btn.disabled = true;
 
-  setTimeout(() => {
-    const users = getStoredData('sm_users');
-    const user = users.find(u => u.email.toLowerCase() === email && u.password === password);
+  try {
+    const cred = await signInWithEmailAndPassword(auth, email, password);
+    const profileSnap = await getDoc(doc(db, 'users', cred.user.uid));
 
-    if (user) {
-      setStoredUser(user);
-      showToast('Welcome back, ' + user.fname + '! 🎉');
-      
-      setTimeout(() => {
-        const dashLink = user.role === 'seller' ? 'seller-dashboard.html' : 'buyer-dashboard.html';
-        window.location.href = dashLink;
-      }, 800);
-    } else {
-      const emailExists = users.find(u => u.email.toLowerCase() === email);
-      
-      if (emailExists) {
-        showFieldError('loginPassword', 'Incorrect password. Please try again.');
-      } else {
-        showFieldError('loginEmail', 'No account found with this email. Please register first.');
-      }
-      
-      btn.innerHTML = originalHTML;
-      btn.disabled = false;
+    if (!profileSnap.exists()) {
+      showToast('Welcome back!');
+      goToDashboard('buyer');
+      return;
     }
-  }, 1200);
+
+    const profile = profileSnap.data();
+    showToast('Welcome back, ' + profile.fname + '! 🎉');
+    setTimeout(() => goToDashboard(profile.role), 600);
+  } catch (error) {
+    handleAuthError(error, 'login');
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+  }
 }
 
 /* ── Handle Register ── */
-function handleAuthRegister(e) {
+async function handleAuthRegister(e) {
   e.preventDefault();
   clearAuthErrors();
 
@@ -177,54 +216,77 @@ function handleAuthRegister(e) {
 
   if (!valid) return;
 
-  const users = getStoredData('sm_users');
-  if (users.find(u => u.email.toLowerCase() === email)) {
-    showFieldError('regEmail', 'This email is already registered. Please login instead.');
-    return;
-  }
-
   const btn = $('registerForm').querySelector('.btn-submit');
   const originalHTML = btn.innerHTML;
   btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Creating account...';
   btn.disabled = true;
 
-  setTimeout(() => {
-    const newUser = {
-      id: Date.now(),
-      fname: fname,
-      lname: lname,
-      email: email,
-      phone: phone,
-      district: district,
-      role: role,
-      password: password,
-      joined: new Date().toISOString()
+  try {
+    const cred = await createUserWithEmailAndPassword(auth, email, password);
+
+    await updateProfile(cred.user, { displayName: `${fname} ${lname}` });
+
+    const profile = {
+      uid: cred.user.uid,
+      fname,
+      lname,
+      email,
+      phone,
+      district,
+      role,
+      provider: 'password',
+      joined: new Date().toISOString(),
     };
 
-    users.push(newUser);
-    setStoredData('sm_users', users);
-    setStoredUser(newUser);
+    await setDoc(doc(db, 'users', cred.user.uid), profile);
 
     showToast('Account created successfully! Welcome to SaloneMart 🎉');
-    
-    setTimeout(() => {
-      const dashLink = role === 'seller' ? 'seller-dashboard.html' : 'buyer-dashboard.html';
-      window.location.href = dashLink;
-    }, 1000);
-  }, 1500);
+    setTimeout(() => goToDashboard(role), 800);
+  } catch (error) {
+    handleAuthError(error, 'register');
+    btn.innerHTML = originalHTML;
+    btn.disabled = false;
+  }
 }
 
-/* 
-   SOCIAL AUTH 
-   */
+/*
+   GOOGLE SIGN-IN
+   Real Firebase popup flow — replaces the old fake modal.
+   New Google users are asked for Phone + District + Buy/Sell via a small
+   modal, since Firebase Auth itself has no field for that.
+*/
 
-function socialAuth(provider) {
-  openSocialAuthModal(provider);
+async function socialAuth(provider) {
+  if (provider !== 'google') {
+    showToast('Only Google sign-in is enabled right now.');
+    return;
+  }
+
+  try {
+    const result = await signInWithPopup(auth, googleProvider);
+    const user = result.user;
+
+    const profileRef = doc(db, 'users', user.uid);
+    const profileSnap = await getDoc(profileRef);
+
+    if (profileSnap.exists()) {
+      const profile = profileSnap.data();
+      showToast('Welcome back, ' + profile.fname + '! 🎉');
+      setTimeout(() => goToDashboard(profile.role), 600);
+    } else {
+      openGoogleProfileModal(user);
+    }
+  } catch (error) {
+    if (error.code === 'auth/popup-closed-by-user') {
+      return;
+    }
+    showToast('Google sign-in failed: ' + error.message);
+  }
 }
 
-function openSocialAuthModal(provider) {
+function openGoogleProfileModal(user) {
   let modal = $('socialAuthModal');
-  
+
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'socialAuthModal';
@@ -232,117 +294,134 @@ function openSocialAuthModal(provider) {
     document.body.appendChild(modal);
   }
 
-  const providerName = provider.charAt(0).toUpperCase() + provider.slice(1);
-  const providerIcon = provider === 'google' ? 'fa-google' : 'fa-facebook-f';
-  const providerColor = provider === 'google' ? '#DB4437' : '#4267B2';
+  const nameParts = (user.displayName || 'Google User').split(' ');
+  const fname = nameParts[0];
+  const lname = nameParts.slice(1).join(' ') || 'User';
 
   modal.innerHTML = `
     <div class="modal-content social-modal">
       <div class="modal-header">
         <h2>
-          <i class="fa-brands ${providerIcon}" style="color:${providerColor}"></i>
-          Continue with ${providerName}
+          <i class="fa-brands fa-google" style="color:#DB4437"></i>
+          Finish setting up your account
         </h2>
         <button class="modal-close" onclick="closeSocialAuthModal()">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
       <div class="modal-body">
-        <div class="social-auth-steps">
-          <!-- Step 1: Loading -->
-          <div class="social-step active" id="socialStep1">
-            <div class="social-loading">
-              <i class="fa-solid fa-circle-notch fa-spin" style="font-size:3rem;color:${providerColor}"></i>
-              <p>Connecting to ${providerName}...</p>
-            </div>
-          </div>
-          
-          <!-- Step 2: Profile Completion Form -->
-          <div class="social-step" id="socialStep2" style="display:none">
-            <p class="social-success-msg">
-              <i class="fa-solid fa-circle-check" style="color:var(--green);font-size:2rem;margin-bottom:1rem;display:block"></i>
-              Successfully connected to ${providerName}!
-            </p>
-            
-            <div class="form-group">
-              <label for="socialName"><i class="fa-solid fa-user"></i> Your Full Name</label>
-              <input type="text" id="socialName" placeholder="Enter your full name" required />
-              <span class="field-error"></span>
-            </div>
-            
-            <div class="form-group">
-              <label for="socialEmail"><i class="fa-solid fa-envelope"></i> Email Address</label>
-              <input type="email" id="socialEmail" placeholder="your.email@gmail.com" required />
-              <span class="field-error"></span>
-            </div>
-            
-            <div class="form-group">
-              <label for="socialDistrict"><i class="fa-solid fa-map-location-dot"></i> District</label>
-              <select id="socialDistrict" required>
-                <option value="">Select District</option>
-                <option>Western Area (Freetown)</option>
-                <option>Bo</option>
-                <option>Kenema</option>
-                <option>Makeni (Bombali)</option>
-                <option>Kailahun</option>
-                <option>Koidu (Kono)</option>
-                <option>Moyamba</option>
-                <option>Port Loko</option>
-                <option>Pujehun</option>
-                <option>Tonkolili</option>
-                <option>Kambia</option>
-                <option>Bonthe</option>
-              </select>
-              <span class="field-error"></span>
-            </div>
-            
-            <div class="form-group">
-              <label><i class="fa-solid fa-briefcase"></i> I want to...</label>
-              <div class="role-selector">
-                <label class="role-option">
-                  <input type="radio" name="socialRole" value="buyer" checked />
-                  <span><i class="fa-solid fa-bag-shopping"></i> Buy</span>
-                </label>
-                <label class="role-option">
-                  <input type="radio" name="socialRole" value="seller" />
-                  <span><i class="fa-solid fa-store"></i> Sell</span>
-                </label>
-              </div>
-            </div>
-            
-            <button class="btn-submit" onclick="completeSocialAuth('${provider}')">
-              <i class="fa-solid fa-rocket"></i> Complete Sign Up
-            </button>
+        <p class="social-success-msg">
+          <i class="fa-solid fa-circle-check" style="color:var(--green);font-size:2rem;margin-bottom:1rem;display:block"></i>
+          Signed in as ${user.email}
+        </p>
+
+        <div class="form-group">
+          <label for="googlePhone"><i class="fa-solid fa-phone"></i> Phone Number</label>
+          <input type="tel" id="googlePhone" placeholder="+232 76 000 000" required />
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="googleDistrict"><i class="fa-solid fa-map-location-dot"></i> District</label>
+          <select id="googleDistrict" required>
+            <option value="">Select District</option>
+            <option>Western Area (Freetown)</option>
+            <option>Bo</option>
+            <option>Kenema</option>
+            <option>Makeni (Bombali)</option>
+            <option>Kailahun</option>
+            <option>Koidu (Kono)</option>
+            <option>Moyamba</option>
+            <option>Port Loko</option>
+            <option>Pujehun</option>
+            <option>Tonkolili</option>
+            <option>Kambia</option>
+            <option>Bonthe</option>
+          </select>
+          <span class="field-error"></span>
+        </div>
+
+        <div class="form-group">
+          <label><i class="fa-solid fa-briefcase"></i> I want to...</label>
+          <div class="role-selector">
+            <label class="role-option">
+              <input type="radio" name="googleRole" value="buyer" checked />
+              <span><i class="fa-solid fa-bag-shopping"></i> Buy</span>
+            </label>
+            <label class="role-option">
+              <input type="radio" name="googleRole" value="seller" />
+              <span><i class="fa-solid fa-store"></i> Sell</span>
+            </label>
           </div>
         </div>
+
+        <button class="btn-submit" id="completeGoogleSetupBtn">
+          <i class="fa-solid fa-rocket"></i> Complete Sign Up
+        </button>
       </div>
     </div>
   `;
 
   modal.classList.add('active');
 
-  // Show form after loading animation
-  setTimeout(() => {
-    $('socialStep1').style.display = 'none';
-    $('socialStep2').style.display = 'block';
-    
-    // Generate UNIQUE email each time so it NEVER matches existing users
-    const timestamp = Date.now();
-    const randomNum = Math.floor(Math.random() * 9999);
-    
-    if (provider === 'google') {
-      $('socialEmail').value = `user${timestamp}${randomNum}@gmail.com`;
-    } else {
-      $('socialEmail').value = `user${timestamp}${randomNum}@facebook.com`;
-    }
-    
-    // Leave name and district EMPTY - user MUST fill them in
-    $('socialName').value = '';
-    $('socialDistrict').value = '';
-    
-    // Focus on name field
-    $('socialName').focus();
-  }, 2000);
+  $('completeGoogleSetupBtn').addEventListener('click', () => {
+    completeGoogleProfile(user, fname, lname);
+  });
+}
+
+async function completeGoogleProfile(user, fname, lname) {
+  const phone = $('googlePhone').value.trim();
+  const district = $('googleDistrict').value;
+  const roleInput = document.querySelector('input[name="googleRole"]:checked');
+  const role = roleInput ? roleInput.value : 'buyer';
+
+  $$('#socialAuthModal .field-error').forEach(el => (el.textContent = ''));
+  $$('#socialAuthModal input, #socialAuthModal select').forEach(el => el.classList.remove('error'));
+
+  let valid = true;
+
+  if (!phone) {
+    showFieldError('googlePhone', 'Phone number is required');
+    valid = false;
+  } else if (!validatePhone(phone)) {
+    showFieldError('googlePhone', 'Enter a valid phone (e.g. +232 76 123 456)');
+    valid = false;
+  }
+
+  if (!district) {
+    showFieldError('googleDistrict', 'Please select your district');
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  const btn = $('completeGoogleSetupBtn');
+  btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Saving...';
+  btn.disabled = true;
+
+  try {
+    const profile = {
+      uid: user.uid,
+      fname,
+      lname,
+      email: user.email,
+      phone,
+      district,
+      role,
+      provider: 'google',
+      joined: new Date().toISOString(),
+    };
+
+    await setDoc(doc(db, 'users', user.uid), profile);
+
+    showToast('Account created via Google! Welcome 🎉');
+    closeSocialAuthModal();
+    setTimeout(() => goToDashboard(role), 800);
+  } catch (error) {
+    showToast('Could not save your profile: ' + error.message);
+    btn.innerHTML = '<i class="fa-solid fa-rocket"></i> Complete Sign Up';
+    btn.disabled = false;
+  }
 }
 
 function closeSocialAuthModal() {
@@ -353,92 +432,13 @@ function closeSocialAuthModal() {
   }
 }
 
-function completeSocialAuth(provider) {
-  const name = $('socialName').value.trim();
-  const email = $('socialEmail').value.trim();
-  const district = $('socialDistrict').value;
-  const roleInput = document.querySelector('input[name="socialRole"]:checked');
-  const role = roleInput ? roleInput.value : 'buyer';
-
-  // Clear previous errors
-  $$('#socialStep2 .field-error').forEach(el => el.textContent = '');
-  $$('#socialStep2 input, #socialStep2 select').forEach(el => el.classList.remove('error'));
-
-  // Validation
-  let valid = true;
-
-  if (!name || name.length < 2) {
-    showFieldError('socialName', 'Please enter your full name');
-    valid = false;
-  }
-
-  if (!email || !validateEmail(email)) {
-    showFieldError('socialEmail', 'Please enter a valid email address');
-    valid = false;
-  }
-
-  if (!district) {
-    showFieldError('socialDistrict', 'Please select your district');
-    valid = false;
-  }
-
-  if (!valid) return;
-
-  // Split name into first and last
-  const nameParts = name.split(' ');
-  const fname = nameParts[0];
-  const lname = nameParts.slice(1).join(' ') || 'User';
-
-  // Check if email already exists
-  const users = getStoredData('sm_users');
-  const existingUser = users.find(u => u.email.toLowerCase() === email.toLowerCase());
-
-  if (existingUser) {
-    setStoredUser(existingUser);
-    showToast('Welcome back, ' + existingUser.fname + '! 🎉');
-    closeSocialAuthModal();
-    
-    setTimeout(() => {
-      const dashLink = existingUser.role === 'seller' ? 'seller-dashboard.html' : 'buyer-dashboard.html';
-      window.location.href = dashLink;
-    }, 1000);
-    return;
-  }
-
-  // Create new user
-  const newUser = {
-    id: Date.now(),
-    fname: fname,
-    lname: lname,
-    email: email.toLowerCase(),
-    phone: '+232 76 000 000',
-    district: district,
-    role: role,
-    password: 'social_' + Date.now(),
-    provider: provider,
-    joined: new Date().toISOString()
-  };
-
-  users.push(newUser);
-  setStoredData('sm_users', users);
-  setStoredUser(newUser);
-
-  showToast('Account created via ' + provider + '! Welcome 🎉');
-  closeSocialAuthModal();
-
-  setTimeout(() => {
-    const dashLink = role === 'seller' ? 'seller-dashboard.html' : 'buyer-dashboard.html';
-    window.location.href = dashLink;
-  }, 1000);
-}
-
 /* ── Field Error Helper ── */
 function showFieldError(inputId, message) {
   const input = $(inputId);
   if (!input) return;
 
   input.classList.add('error');
-  
+
   let errorEl = input.parentElement.querySelector('.field-error');
   if (!errorEl) {
     errorEl = document.createElement('span');
@@ -448,11 +448,10 @@ function showFieldError(inputId, message) {
   errorEl.textContent = message;
 }
 
-/* ── Expose to global scope ── */
+/* ── Expose to global scope (needed because this file is a module) ── */
 window.switchAuthTab = switchAuthTab;
 window.togglePasswordVisibility = togglePasswordVisibility;
 window.handleAuthLogin = handleAuthLogin;
 window.handleAuthRegister = handleAuthRegister;
 window.socialAuth = socialAuth;
 window.closeSocialAuthModal = closeSocialAuthModal;
-window.completeSocialAuth = completeSocialAuth;

@@ -1112,15 +1112,29 @@
     <script src="./JAVASCRIPT/auth-aware.js"></script>
 
     <script type="module">
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
-      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js";
+      import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-analytics.js";
+      import { getAuth } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js";
 
       const firebaseConfig = {
-        // paste your config here
+        apiKey: "AIzaSyDdVvGB-7CyKzyOrd7JJuLTBiinlXOu8TE",
+        authDomain: "market-system-5dfc3.firebaseapp.com",
+        projectId: "market-system-5dfc3",
+        storageBucket: "market-system-5dfc3.firebasestorage.app",
+        messagingSenderId: "78541507822",
+        appId: "1:78541507822:web:92eda27eece6518632b7ff",
+        measurementId: "G-DL1D8RS478",
       };
 
       const app = initializeApp(firebaseConfig);
+      const analytics = getAnalytics(app);
+      const auth = getAuth(app);
       const db = getFirestore(app);
+
+      // Make available to other scripts if needed
+      window.firebaseAuth = auth;
+      window.firebaseDB = db;
     </script>
   </body>
 </html>
