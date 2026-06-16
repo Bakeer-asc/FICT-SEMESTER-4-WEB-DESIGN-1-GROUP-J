@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SalMart — Sierra Leone's Digital Marketplace</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Font Awesome 6 -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <!-- Stylesheets (ordered: common → layout → page → responsive) -->
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/index.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <!-- LOADER -->
+    <div id="loader">
+      <div class="loader-inner">
+        <div class="loader-logo">Sal<em>Mart</em></div>
+        <div class="loader-bar"><div class="loader-fill"></div></div>
+      </div>
+    </div>
+
+    <!-- NAVBAR -->
+    <header id="navbar">
+      <div class="nav-container">
+        <a href="#home" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="support.html" class="nav-link active">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" id="searchToggle" aria-label="Search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+          </button>
+          <button
+            class="nav-icon-btn cart-btn"
+            id="cartToggle"
+            aria-label="Cart"
+          >
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartBadge">0</span>
+          </button>
+          <a href="auth.html" class="btn-nav-cta">
+            <i class="fa-solid fa-store"></i> Sell Now
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+      <!-- Search Overlay -->
+      <div class="search-overlay" id="searchOverlay">
+        <div class="search-overlay-inner">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Search products, categories, sellers…"
+          />
+          <button id="searchClose"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="#home" onclick="closeMobile()"
+        ><i class="fa-solid fa-house"></i> Home</a
+      >
+      <a href="#categories" onclick="closeMobile()"
+        ><i class="fa-solid fa-grid-2"></i> Categories</a
+      >
+      <a href="#products" onclick="closeMobile()"
+        ><i class="fa-solid fa-shop"></i> Products</a
+      >
+      <a href="#how-it-works" onclick="closeMobile()"
+        ><i class="fa-solid fa-circle-info"></i> How It Works</a
+      >
+      <a href="#sellers" onclick="closeMobile()"
+        ><i class="fa-solid fa-users"></i> Sellers</a
+      >
+      <a href="#register" onclick="closeMobile()"
+        ><i class="fa-solid fa-store"></i> Start Selling</a
+      >
+      <a href="#contact" onclick="closeMobile()"
+        ><i class="fa-solid fa-envelope"></i> Contact</a
+      >
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <!-- HERO -->
+      <section id="home" class="hero">
+        <div class="hero-bg">
+          <div class="hero-blob blob-1"></div>
+          <div class="hero-blob blob-2"></div>
+          <div class="hero-grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+          <div class="hero-text reveal">
+            <div class="hero-pill">
+              <span class="pill-dot"></span>
+              Sierra Leone's #1 Digital Market
+            </div>
+            <h1 class="hero-heading">
+              Your Local Market,<br />
+              <span class="heading-accent">Now Online.</span>
+            </h1>
+            <p class="hero-subtext">
+              SalMart connects farmers, traders, and buyers across all 12
+              districts of Sierra Leone — no middlemen, no borders, just trade.
+            </p>
+            <div class="hero-buttons">
+              <a href="#products" class="btn-primary">
+                <i class="fa-solid fa-store"></i> Browse Market
+              </a>
+              <a href="auth.html" class="btn-ghost">
+                Start Selling <i class="fa-solid fa-arrow-right"></i>
+              </a>
+            </div>
+            <div class="hero-trust">
+              <div class="trust-avatars">
+                <img
+                  src="https://images.unsplash.com/photo-1695281536457-01f9a07c575b?w=150&h=150&fit=crop&crop=face"
+                  alt="Adama"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=150&h=150&fit=crop&crop=face"
+                  alt="Ibrahim"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=150&h=150&fit=crop&crop=face"
+                  alt="Fatmata"
+                />
+                <img
+                  src="https://images.unsplash.com/photo-1533108344127-a586d2b02479?w=150&h=150&fit=crop&crop=face"
+                  alt="Mohamed"
+                />
+              </div>
+              <p>
+                <strong>4,200+ sellers</strong> already trading across Sierra
+                Leone
+              </p>
+            </div>
+          </div>
+
+          <div class="hero-card-wrap reveal delay-1">
+            <div class="hero-card">
+              <div class="hcard-image">
+                <span class="hcard-img-fallback">🌾</span>
+              </div>
+              <div class="hcard-body">
+                <span class="hcard-tag">Fresh Produce · Bo District</span>
+                <h3 class="hcard-title">Premium Salone Rice</h3>
+                <div class="hcard-rating">
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star"></i
+                  ><i class="fa-solid fa-star"></i>
+                  <i class="fa-solid fa-star-half-stroke"></i>
+                  <span>4.8 (124 reviews)</span>
+                </div>
+                <div class="hcard-footer">
+                  <div class="hcard-price">
+                    <span class="price-main">NLE 180</span>
+                    <span class="price-old">NLE 210</span>
+                  </div>
+                  <button class="hcard-btn" onclick="addToCart(1)">
+                    <i class="fa-solid fa-cart-plus"></i> Add
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="hero-card-badge badge-top">
+              <i class="fa-solid fa-shield-check"></i> Verified Seller
+            </div>
+            <div class="hero-card-badge badge-bottom">
+              <i class="fa-solid fa-bolt"></i> Fast Delivery
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat reveal">
+            <span class="stat-n" data-target="4200">0</span
+            ><span class="stat-suffix">+</span>
+            <span class="stat-l">Active Sellers</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat reveal delay-1">
+            <span class="stat-n" data-target="18000">0</span
+            ><span class="stat-suffix">+</span>
+            <span class="stat-l">Products Listed</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat reveal delay-2">
+            <span class="stat-n" data-target="12">0</span>
+            <span class="stat-l">Districts Covered</span>
+          </div>
+          <div class="stat-divider"></div>
+          <div class="stat reveal delay-3">
+            <span class="stat-n" data-target="98">0</span
+            ><span class="stat-suffix">%</span>
+            <span class="stat-l">Satisfaction Rate</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- TICKER -->
+      <div class="ticker">
+        <div class="ticker-track">
+          <span><i class="fa-solid fa-wheat-awn"></i> Fresh Produce</span>
+          <span><i class="fa-solid fa-fish"></i> Fish &amp; Seafood</span>
+          <span><i class="fa-solid fa-shirt"></i> Fashion &amp; Gara</span>
+          <span
+            ><i class="fa-solid fa-bottle-droplet"></i> Palm Oil &amp;
+            Spices</span
+          >
+          <span><i class="fa-solid fa-mobile-screen"></i> Electronics</span>
+          <span><i class="fa-solid fa-cow"></i> Livestock</span>
+          <span
+            ><i class="fa-solid fa-helmet-safety"></i> Building Materials</span
+          >
+          <span><i class="fa-solid fa-paintbrush"></i> Crafts &amp; Art</span>
+          <span><i class="fa-solid fa-wheat-awn"></i> Fresh Produce</span>
+          <span><i class="fa-solid fa-fish"></i> Fish &amp; Seafood</span>
+          <span><i class="fa-solid fa-shirt"></i> Fashion &amp; Gara</span>
+          <span
+            ><i class="fa-solid fa-bottle-droplet"></i> Palm Oil &amp;
+            Spices</span
+          >
+          <span><i class="fa-solid fa-mobile-screen"></i> Electronics</span>
+          <span><i class="fa-solid fa-cow"></i> Livestock</span>
+          <span
+            ><i class="fa-solid fa-helmet-safety"></i> Building Materials</span
+          >
+          <span><i class="fa-solid fa-paintbrush"></i> Crafts &amp; Art</span>
+        </div>
+      </div>
+
+      <!-- CATEGORIES -->
+      <section id="categories" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-grid-2"></i> Browse</span
+            >
+            <h2 class="section-title">Shop by Category</h2>
+            <p class="section-desc">
+              Everything Sierra Leone produces, in one place.
+            </p>
+          </div>
+
+          <div class="categories-grid">
+            <div class="cat-card reveal" onclick="filterByCategory('produce')">
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=400&h=300&fit=crop"
+                  alt="Fresh Produce"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Fresh Produce</h3>
+                <span>1,240 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-1"
+              onclick="filterByCategory('fish')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=400&h=300&fit=crop"
+                  alt="Fish & Seafood"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Fish &amp; Seafood</h3>
+                <span>865 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-2"
+              onclick="filterByCategory('fashion')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=400&h=300&fit=crop"
+                  alt="Fashion & Gara"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Fashion &amp; Gara</h3>
+                <span>2,100 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-3"
+              onclick="filterByCategory('spices')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=400&h=300&fit=crop"
+                  alt="Spices & Oil"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Spices &amp; Oil</h3>
+                <span>530 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div class="cat-card reveal" onclick="filterByCategory('crafts')">
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=400&h=300&fit=crop"
+                  alt="Crafts & Art"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Crafts &amp; Art</h3>
+                <span>748 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-1"
+              onclick="filterByCategory('electronics')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop"
+                  alt="Electronics"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Electronics</h3>
+                <span>390 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-2"
+              onclick="filterByCategory('livestock')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1527153857715-3908f2bae5e8?w=400&h=300&fit=crop"
+                  alt="Livestock"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Livestock</h3>
+                <span>215 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+
+            <div
+              class="cat-card reveal delay-3"
+              onclick="filterByCategory('building')"
+            >
+              <div class="cat-img-wrap">
+                <img
+                  src="https://images.unsplash.com/photo-1637241612956-b7309005288b?w=400&h=300&fit=crop"
+                  alt="Building Materials"
+                />
+              </div>
+              <div class="cat-info">
+                <h3>Building Materials</h3>
+                <span>460 items</span>
+              </div>
+              <i class="fa-solid fa-chevron-right cat-arrow"></i>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PRODUCTS -->
+      <section id="products" class="section section-alt">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-fire-flame-curved"></i> Featured</span
+            >
+            <h2 class="section-title">Today's Best Listings</h2>
+            <p class="section-desc">
+              Hand-picked products from verified sellers across Sierra Leone.
+            </p>
+          </div>
+          <div class="filter-bar reveal">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="produce">Produce</button>
+            <button class="filter-btn" data-filter="fish">Fish</button>
+            <button class="filter-btn" data-filter="fashion">Fashion</button>
+            <button class="filter-btn" data-filter="spices">Spices</button>
+            <button class="filter-btn" data-filter="crafts">Crafts</button>
+          </div>
+          <div class="products-grid" id="productsGrid"></div>
+          <div class="section-cta reveal">
+            <button class="btn-outline-green" onclick="loadMore()">
+              <i class="fa-solid fa-rotate"></i> Load More Products
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- HOW IT WORKS -->
+      <section id="how-it-works" class="section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-circle-play"></i> Process</span
+            >
+            <h2 class="section-title">How SalMart Works</h2>
+            <p class="section-desc">
+              From listing to sale in four simple steps.
+            </p>
+          </div>
+          <div class="steps-wrap">
+            <div class="step-card reveal">
+              <div class="step-number">01</div>
+              <div class="step-icon"><i class="fa-solid fa-user-plus"></i></div>
+              <h3 class="step-title">Create Account</h3>
+              <p class="step-desc">
+                Register free with your name, phone, and district. Verified in
+                minutes.
+              </p>
+            </div>
+            <div class="step-connector">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="step-card reveal delay-1">
+              <div class="step-number">02</div>
+              <div class="step-icon"><i class="fa-solid fa-camera"></i></div>
+              <h3 class="step-title">List Products</h3>
+              <p class="step-desc">
+                Add your items with photos, price in NLE, and description. Goes
+                live instantly.
+              </p>
+            </div>
+            <div class="step-connector">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="step-card reveal delay-2">
+              <div class="step-number">03</div>
+              <div class="step-icon"><i class="fa-solid fa-comments"></i></div>
+              <h3 class="step-title">Connect &amp; Agree</h3>
+              <p class="step-desc">
+                Buyers reach you via chat or WhatsApp. Agree on price, delivery,
+                or pickup.
+              </p>
+            </div>
+            <div class="step-connector">
+              <i class="fa-solid fa-arrow-right"></i>
+            </div>
+            <div class="step-card reveal delay-3">
+              <div class="step-number">04</div>
+              <div class="step-icon"><i class="fa-solid fa-handshake"></i></div>
+              <h3 class="step-title">Trade &amp; Review</h3>
+              <p class="step-desc">
+                Complete your deal safely. Leave a review to build your
+                community reputation.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- TOP SELLERS -->
+      <section id="sellers" class="section sellers-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-eyebrow eyebrow-gold"
+              ><i class="fa-solid fa-trophy"></i> Community</span
+            >
+            <h2 class="section-title title-light">Top Sellers This Month</h2>
+            <p class="section-desc desc-light">
+              Meet the entrepreneurs powering Sierra Leone's digital economy.
+            </p>
+          </div>
+
+          <div class="sellers-grid">
+            <div class="seller-card reveal">
+              <div class="seller-rank">#1</div>
+              <div class="seller-photo-wrap">
+                <img
+                  class="seller-photo"
+                  src="https://images.unsplash.com/photo-1695281536457-01f9a07c575b?w=300&h=300&fit=crop&crop=face"
+                  alt="Adama Koroma"
+                />
+              </div>
+              <h3 class="seller-name">Adama Koroma</h3>
+              <p class="seller-loc">
+                <i class="fa-solid fa-location-dot"></i> Freetown, Western Area
+              </p>
+              <div class="seller-tags">
+                <span>Rice</span><span>Vegetables</span>
+              </div>
+              <div class="seller-stats">
+                <div class="s-stat">
+                  <span class="s-val">342</span><span class="s-lbl">Sales</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">4.9★</span
+                  ><span class="s-lbl">Rating</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">24</span
+                  ><span class="s-lbl">Products</span>
+                </div>
+              </div>
+              <button class="seller-contact-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact
+              </button>
+            </div>
+
+            <div class="seller-card reveal delay-1">
+              <div class="seller-rank">#2</div>
+              <div class="seller-photo-wrap">
+                <img
+                  class="seller-photo"
+                  src="https://images.unsplash.com/photo-1522529599102-193c0d76b5b6?w=300&h=300&fit=crop&crop=face"
+                  alt="Ibrahim Bangura"
+                />
+              </div>
+              <h3 class="seller-name">Ibrahim Bangura</h3>
+              <p class="seller-loc">
+                <i class="fa-solid fa-location-dot"></i> Bo, Southern Province
+              </p>
+              <div class="seller-tags">
+                <span>Fish</span><span>Seafood</span>
+              </div>
+              <div class="seller-stats">
+                <div class="s-stat">
+                  <span class="s-val">289</span><span class="s-lbl">Sales</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">4.8★</span
+                  ><span class="s-lbl">Rating</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">18</span
+                  ><span class="s-lbl">Products</span>
+                </div>
+              </div>
+              <button class="seller-contact-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact
+              </button>
+            </div>
+
+            <div class="seller-card reveal delay-2">
+              <div class="seller-rank">#3</div>
+              <div class="seller-photo-wrap">
+                <img
+                  class="seller-photo"
+                  src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=300&h=300&fit=crop&crop=face"
+                  alt="Fatmata Sesay"
+                />
+              </div>
+              <h3 class="seller-name">Fatmata Sesay</h3>
+              <p class="seller-loc">
+                <i class="fa-solid fa-location-dot"></i> Kenema, Eastern
+                Province
+              </p>
+              <div class="seller-tags">
+                <span>Gara Fabric</span><span>Fashion</span>
+              </div>
+              <div class="seller-stats">
+                <div class="s-stat">
+                  <span class="s-val">214</span><span class="s-lbl">Sales</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">4.9★</span
+                  ><span class="s-lbl">Rating</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">31</span
+                  ><span class="s-lbl">Products</span>
+                </div>
+              </div>
+              <button class="seller-contact-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact
+              </button>
+            </div>
+
+            <div class="seller-card reveal delay-3">
+              <div class="seller-rank">#4</div>
+              <div class="seller-photo-wrap">
+                <img
+                  class="seller-photo"
+                  src="https://images.unsplash.com/photo-1533108344127-a586d2b02479?w=300&h=300&fit=crop&crop=face"
+                  alt="Mohamed Turay"
+                />
+              </div>
+              <h3 class="seller-name">Mohamed Turay</h3>
+              <p class="seller-loc">
+                <i class="fa-solid fa-location-dot"></i> Makeni, Northern
+                Province
+              </p>
+              <div class="seller-tags">
+                <span>Palm Oil</span><span>Spices</span>
+              </div>
+              <div class="seller-stats">
+                <div class="s-stat">
+                  <span class="s-val">198</span><span class="s-lbl">Sales</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">4.7★</span
+                  ><span class="s-lbl">Rating</span>
+                </div>
+                <div class="s-stat">
+                  <span class="s-val">15</span
+                  ><span class="s-lbl">Products</span>
+                </div>
+              </div>
+              <button class="seller-contact-btn">
+                <i class="fa-brands fa-whatsapp"></i> Contact
+              </button>
+            </div>
+          </div>
+          <div class="section-cta reveal cta-spaced">
+            <a href="auth.html" class="btn-gold"
+              ><i class="fa-solid fa-store"></i> Become a Seller</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section testimonials-section">
+        <div class="container">
+          <div class="section-header reveal">
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-quote-left"></i> Testimonials</span
+            >
+            <h2 class="section-title">Trusted by Sierra Leoneans</h2>
+          </div>
+          <div class="testimonials-grid">
+            <div class="tcard reveal">
+              <div class="tcard-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="tcard-text">
+                "SalMart changed my business. I used to only sell in Freetown
+                market but now I reach customers in Bo and Kenema. My sales
+                doubled in two months!"
+              </p>
+              <div class="tcard-author">
+                <div class="tcard-avatar-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1631831831430-8447cf883291?w=150&h=150&fit=crop&crop=face"
+                    alt="Aminata Jalloh"
+                  />
+                </div>
+                <div>
+                  <strong>Aminata Jalloh</strong>
+                  <span>Palm Oil Trader, Freetown</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tcard reveal delay-1">
+              <div class="tcard-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i>
+              </div>
+              <p class="tcard-text">
+                "As a farmer, finding buyers was my biggest problem. Now I list
+                cassava and yams online and buyers contact me directly. No more
+                middlemen!"
+              </p>
+              <div class="tcard-author">
+                <div class="tcard-avatar-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1535090467336-9501f96eef89?w=300&h=300&fit=crop&crop=face"
+                    alt="Sorie Conteh"
+                  />
+                </div>
+                <div>
+                  <strong>Sorie Conteh</strong>
+                  <span>Cassava Farmer, Tonkolili</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="tcard reveal delay-2">
+              <div class="tcard-stars">
+                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+                ><i class="fa-regular fa-star"></i>
+              </div>
+              <p class="tcard-text">
+                "Finding authentic Salone gara fabric is so easy now. Sellers
+                are verified, quality is always good. Highly recommend to every
+                fashion designer!"
+              </p>
+              <div class="tcard-author">
+                <div class="tcard-avatar-wrap">
+                  <img
+                    src="https://images.unsplash.com/photo-1613005341945-35e159e522f1?w=150&h=150&fit=crop&crop=face"
+                    alt="Hawa Kamara"
+                  />
+                </div>
+                <div>
+                  <strong>Hawa Kamara</strong>
+                  <span>Fashion Designer, Bo</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- REGISTER FORM -->
+      <section id="register" class="section register-section">
+        <div class="container">
+          <div class="register-wrap">
+            <div class="register-info reveal">
+              <span class="section-eyebrow"
+                ><i class="fa-solid fa-rocket"></i> Get Started</span
+              >
+              <h2 class="section-title register-title">
+                Join SalMart<br /><span class="heading-accent"
+                  >Free Forever</span
+                >
+              </h2>
+              <p>
+                Connect with thousands of buyers across Sierra Leone. No fees,
+                no middlemen — just trade.
+              </p>
+              <ul class="perk-list">
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Free registration, no
+                  monthly cost
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Reach buyers in all
+                  12 districts
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Verified sellers earn
+                  a trust badge
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Support in Krio and
+                  English
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Mobile-friendly on
+                  any device
+                </li>
+                <li>
+                  <i class="fa-solid fa-circle-check"></i> Instant product
+                  listing
+                </li>
+              </ul>
+              <div class="trust-bar">
+                <div class="trust-item">
+                  <i class="fa-solid fa-lock"></i> Secure
+                </div>
+                <div class="trust-item">
+                  <i class="fa-solid fa-shield-halved"></i> Verified
+                </div>
+                <div class="trust-item">
+                  <i class="fa-solid fa-headset"></i> Supported
+                </div>
+              </div>
+            </div>
+
+            <div class="form-wrap reveal delay-1">
+              <div class="form-card" id="formCard">
+                <h3 class="form-heading">Create Your Account</h3>
+                <p class="form-sub">It takes less than 2 minutes</p>
+                <div class="form-body" id="formBody">
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="fName"
+                        ><i class="fa-solid fa-user"></i> First Name</label
+                      >
+                      <input
+                        type="text"
+                        id="fName"
+                        placeholder="e.g. Aminata"
+                      />
+                      <span class="field-error" id="fNameErr"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="lName"
+                        ><i class="fa-solid fa-user"></i> Last Name</label
+                      >
+                      <input type="text" id="lName" placeholder="e.g. Koroma" />
+                      <span class="field-error" id="lNameErr"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fEmail"
+                      ><i class="fa-solid fa-envelope"></i> Email Address</label
+                    >
+                    <input
+                      type="email"
+                      id="fEmail"
+                      placeholder="you@example.com"
+                    />
+                    <span class="field-error" id="fEmailErr"></span>
+                  </div>
+                  <div class="form-group">
+                    <label for="fPhone"
+                      ><i class="fa-solid fa-phone"></i> Phone Number</label
+                    >
+                    <input
+                      type="tel"
+                      id="fPhone"
+                      placeholder="+232 76 000 000"
+                    />
+                    <span class="field-error" id="fPhoneErr"></span>
+                  </div>
+                  <div class="form-row">
+                    <div class="form-group">
+                      <label for="fDistrict"
+                        ><i class="fa-solid fa-map-location-dot"></i>
+                        District</label
+                      >
+                      <select id="fDistrict">
+                        <option value="">Select District</option>
+                        <option>Western Area (Freetown)</option>
+                        <option>Bo</option>
+                        <option>Kenema</option>
+                        <option>Makeni (Bombali)</option>
+                        <option>Kailahun</option>
+                        <option>Koidu (Kono)</option>
+                        <option>Moyamba</option>
+                        <option>Port Loko</option>
+                        <option>Pujehun</option>
+                        <option>Tonkolili</option>
+                        <option>Kambia</option>
+                        <option>Bonthe</option>
+                      </select>
+                      <span class="field-error" id="fDistrictErr"></span>
+                    </div>
+                    <div class="form-group">
+                      <label for="fRole"
+                        ><i class="fa-solid fa-briefcase"></i> I am a…</label
+                      >
+                      <select id="fRole">
+                        <option value="">Select Role</option>
+                        <option value="buyer">Buyer</option>
+                        <option value="seller">Seller / Trader</option>
+                        <option value="farmer">Farmer</option>
+                        <option value="artisan">Artisan / Craftsperson</option>
+                        <option value="business">Business Owner</option>
+                      </select>
+                      <span class="field-error" id="fRoleErr"></span>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label for="fProducts"
+                      ><i class="fa-solid fa-box-open"></i> What do you sell?
+                      <span class="optional">(optional)</span></label
+                    >
+                    <textarea
+                      id="fProducts"
+                      rows="3"
+                      placeholder="e.g. Rice, palm oil, gara fabric, fresh fish…"
+                    ></textarea>
+                  </div>
+                  <button
+                    class="btn-submit"
+                    id="submitBtn"
+                    onclick="handleRegister()"
+                  >
+                    <i class="fa-solid fa-rocket"></i> Create Free Account
+                  </button>
+                  <p class="form-note">
+                    By registering you agree to our <a href="#">Terms</a> &amp;
+                    <a href="#">Privacy Policy</a>
+                  </p>
+                </div>
+                <div class="form-success" id="formSuccess">
+                  <div class="success-icon">
+                    <i class="fa-solid fa-circle-check"></i>
+                  </div>
+                  <h3>Welcome to SalMart! 🎉</h3>
+                  <p>
+                    Your account is being set up. Check your phone for a
+                    verification SMS.
+                  </p>
+                  <a href="#products" class="btn-primary btn-inline-flex">
+                    <i class="fa-solid fa-store"></i> Explore Market
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="#home" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>
+              Sierra Leone's trusted digital marketplace — connecting buyers and
+              sellers across all 12 districts.
+            </p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="Facebook"
+              >
+                <i class="fa-brands fa-facebook-f"></i>
+              </a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="Instagram"
+              >
+                <i class="fa-brands fa-instagram"></i>
+              </a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="Twitter"
+              >
+                <i class="fa-brands fa-x-twitter"></i>
+              </a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="WhatsApp"
+              >
+                <i class="fa-brands fa-whatsapp"></i>
+              </a>
+              <a
+                href="https://youtube.com/@salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="YouTube"
+              >
+                <i class="fa-brands fa-youtube"></i>
+              </a>
+              <a
+                href="https://tiktok.com/@salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                aria-label="TikTok"
+              >
+                <i class="fa-brands fa-tiktok"></i>
+              </a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Marketplace</h4>
+            <ul>
+              <li><a href="index.html#categories">Browse Categories</a></li>
+              <li><a href="index.html#products">Featured Products</a></li>
+              <li><a href="index.html#sellers">Top Sellers</a></li>
+              <li><a href="index.html#register">Start Selling</a></li>
+              <li><a href="#">Buyer Protection</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About SalMart</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog &amp; News</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="presskit.html">Press Kit</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact Us</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i><span>+232 76 123 456</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i><span>hello@salmart.sl</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-brands fa-whatsapp"></i><span>+232 78 999 000</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-clock"></i><span>Mon–Sat · 8am–6pm</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. All rights reserved. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy Policy</a>
+            <a href="terms.html">Terms of Service</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- CART DRAWER -->
+    <div class="cart-drawer" id="cartDrawer">
+      <div class="cart-header">
+        <h3><i class="fa-solid fa-bag-shopping"></i> Your Cart</h3>
+        <button onclick="toggleCart()">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
+      <div class="cart-items" id="cartItems">
+        <div class="cart-empty">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <p>Your cart is empty</p>
+          <a href="#products" onclick="toggleCart()">Browse Products</a>
+        </div>
+      </div>
+      <div class="cart-footer" id="cartFooter">
+        <div class="cart-total">
+          Total: <strong id="cartTotal">NLE 0</strong>
+        </div>
+        <button class="btn-primary btn-full-center" onclick="checkout()">
+          <i class="fa-solid fa-credit-card"></i> Checkout
+        </button>
+      </div>
+    </div>
+    <div class="drawer-overlay" id="drawerOverlay" onclick="toggleCart()"></div>
+
+    <!-- TOAST -->
+    <div id="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg"></span>
+    </div>
+
+    <!-- BACK TO TOP -->
+    <button
+      id="backToTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+      aria-label="Back to top"
+    >
+      <i class="fa-solid fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript (ordered: utils → data → navbar → page-specific → auth-aware) -->
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/data.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script src="./JAVASCRIPT/index.js"></script>
+    <script src="./JAVASCRIPT/auth-aware.js"></script>
+
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-app.js";
+      import { getFirestore } from "https://www.gstatic.com/firebasejs/10.0.0/firebase-firestore.js";
+
+      const firebaseConfig = {
+        // paste your config here
+      };
+
+      const app = initializeApp(firebaseConfig);
+      const db = getFirestore(app);
+    </script>
+  </body>
+</html>

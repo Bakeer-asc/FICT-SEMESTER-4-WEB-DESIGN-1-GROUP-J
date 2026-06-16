@@ -1,0 +1,484 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Press Kit — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="presskit.html" class="nav-link active">Press</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta"
+            ><i class="fa-solid fa-store"></i> Sell Now</a
+          >
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="presskit.html"><i class="fa-solid fa-newspaper"></i> Press</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-newspaper"></i> Press Kit</span
+          >
+          <h1>Resources for <span class="heading-accent">Media</span></h1>
+          <p>
+            Everything journalists and partners need to tell the SalMart story —
+            logos, brand guidelines, press releases, and high-resolution images.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Press Kit</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Brand Assets -->
+      <section class="page-section">
+        <div class="container">
+          <h2>Brand Assets</h2>
+          <p>
+            Download our official logos and brand materials. Please follow our
+            brand guidelines when using SalMart trademarks.
+          </p>
+
+          <div class="press-assets">
+            <div class="press-asset">
+              <div class="press-asset-icon">
+                <i class="fa-solid fa-file-zipper"></i>
+              </div>
+              <h4>Logo Pack</h4>
+              <p>
+                Primary logo, icon, and variations in PNG, SVG, and PDF formats.
+              </p>
+              <a
+                href="#"
+                class="btn-outline-green"
+                style="font-size: 0.85rem; padding: 0.6rem 1.2rem"
+              >
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+            <div class="press-asset">
+              <div class="press-asset-icon">
+                <i class="fa-solid fa-palette"></i>
+              </div>
+              <h4>Brand Guidelines</h4>
+              <p>Complete guide to colors, typography, and usage rules.</p>
+              <a
+                href="#"
+                class="btn-outline-green"
+                style="font-size: 0.85rem; padding: 0.6rem 1.2rem"
+              >
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+            <div class="press-asset">
+              <div class="press-asset-icon">
+                <i class="fa-solid fa-images"></i>
+              </div>
+              <h4>Product Photos</h4>
+              <p>
+                High-resolution images of our platform and sellers in action.
+              </p>
+              <a
+                href="#"
+                class="btn-outline-green"
+                style="font-size: 0.85rem; padding: 0.6rem 1.2rem"
+              >
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+            <div class="press-asset">
+              <div class="press-asset-icon">
+                <i class="fa-solid fa-file-lines"></i>
+              </div>
+              <h4>Fact Sheet</h4>
+              <p>Key statistics, milestones, and company overview.</p>
+              <a
+                href="#"
+                class="btn-outline-green"
+                style="font-size: 0.85rem; padding: 0.6rem 1.2rem"
+              >
+                <i class="fa-solid fa-download"></i> Download
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Press Releases -->
+      <section class="page-section alt">
+        <div class="container">
+          <h2>Press Releases</h2>
+
+          <div
+            style="
+              display: flex;
+              flex-direction: column;
+              gap: 1.5rem;
+              margin-top: 2rem;
+            "
+          >
+            <article
+              style="
+                background: var(--white);
+                border: 1.5px solid var(--border);
+                border-radius: var(--radius-md);
+                padding: 1.75rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: start;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <div>
+                  <span
+                    class="blog-tag"
+                    style="
+                      background: var(--green-pale);
+                      color: var(--green);
+                      padding: 0.25rem 0.7rem;
+                      border-radius: 99px;
+                      font-size: 0.72rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                    "
+                    >Press Release</span
+                  >
+                  <h3
+                    style="
+                      font-family: var(--ff-display);
+                      font-size: 1.3rem;
+                      margin: 0.75rem 0 0.5rem;
+                    "
+                  >
+                    SalMart Reaches 4,000 Active Sellers Milestone
+                  </h3>
+                  <p
+                    style="
+                      color: var(--muted);
+                      font-size: 0.92rem;
+                      margin: 0 0 0.75rem;
+                    "
+                  >
+                    FREETOWN, SIERRA LEONE — SalMart, the nation's leading
+                    digital marketplace, announced today that it has surpassed
+                    4,000 active sellers across all 12 districts...
+                  </p>
+                </div>
+                <div
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--muted);
+                    white-space: nowrap;
+                  "
+                >
+                  <i class="fa-regular fa-calendar"></i> June 1, 2026
+                </div>
+              </div>
+              <a
+                href="#"
+                style="color: var(--green); font-weight: 600; font-size: 0.9rem"
+                >Read Full Release →</a
+              >
+            </article>
+
+            <article
+              style="
+                background: var(--white);
+                border: 1.5px solid var(--border);
+                border-radius: var(--radius-md);
+                padding: 1.75rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: start;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <div>
+                  <span
+                    class="blog-tag"
+                    style="
+                      background: var(--green-pale);
+                      color: var(--green);
+                      padding: 0.25rem 0.7rem;
+                      border-radius: 99px;
+                      font-size: 0.72rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                    "
+                    >Press Release</span
+                  >
+                  <h3
+                    style="
+                      font-family: var(--ff-display);
+                      font-size: 1.3rem;
+                      margin: 0.75rem 0 0.5rem;
+                    "
+                  >
+                    SalMart Launches Mobile Money Integration with Orange Money
+                  </h3>
+                  <p
+                    style="
+                      color: var(--muted);
+                      font-size: 0.92rem;
+                      margin: 0 0 0.75rem;
+                    "
+                  >
+                    In partnership with Orange SL, SalMart now supports seamless
+                    mobile money payments, making transactions easier for buyers
+                    and sellers nationwide...
+                  </p>
+                </div>
+                <div
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--muted);
+                    white-space: nowrap;
+                  "
+                >
+                  <i class="fa-regular fa-calendar"></i> May 15, 2026
+                </div>
+              </div>
+              <a
+                href="#"
+                style="color: var(--green); font-weight: 600; font-size: 0.9rem"
+                >Read Full Release →</a
+              >
+            </article>
+
+            <article
+              style="
+                background: var(--white);
+                border: 1.5px solid var(--border);
+                border-radius: var(--radius-md);
+                padding: 1.75rem;
+              "
+            >
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: start;
+                  gap: 1rem;
+                  flex-wrap: wrap;
+                "
+              >
+                <div>
+                  <span
+                    class="blog-tag"
+                    style="
+                      background: var(--green-pale);
+                      color: var(--green);
+                      padding: 0.25rem 0.7rem;
+                      border-radius: 99px;
+                      font-size: 0.72rem;
+                      font-weight: 600;
+                      text-transform: uppercase;
+                    "
+                    >Press Release</span
+                  >
+                  <h3
+                    style="
+                      font-family: var(--ff-display);
+                      font-size: 1.3rem;
+                      margin: 0.75rem 0 0.5rem;
+                    "
+                  >
+                    SalMart Announces Expansion to All 12 Districts
+                  </h3>
+                  <p
+                    style="
+                      color: var(--muted);
+                      font-size: 0.92rem;
+                      margin: 0 0 0.75rem;
+                    "
+                  >
+                    The digital marketplace now serves every district in Sierra
+                    Leone, from Kambia in the north to Pujehun in the south...
+                  </p>
+                </div>
+                <div
+                  style="
+                    font-size: 0.85rem;
+                    color: var(--muted);
+                    white-space: nowrap;
+                  "
+                >
+                  <i class="fa-regular fa-calendar"></i> April 20, 2026
+                </div>
+              </div>
+              <a
+                href="#"
+                style="color: var(--green); font-weight: 600; font-size: 0.9rem"
+                >Read Full Release →</a
+              >
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- Media Contact -->
+      <section class="page-section">
+        <div class="container">
+          <div class="press-contact">
+            <h3>Media Inquiries</h3>
+            <p>
+              For press inquiries, interview requests, or partnership
+              opportunities, please contact our media team.
+            </p>
+            <a href="mailto:press@salmart.sl" class="btn-gold">
+              <i class="fa-solid fa-envelope"></i> press@salmart.sl
+            </a>
+            <p style="margin-top: 1.5rem; font-size: 0.9rem">
+              We typically respond within 24 hours on business days.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>Sierra Leone's trusted digital marketplace.</p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="presskit.html">Press Kit</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Media Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i><span>press@salmart.sl</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i><span>+232 76 123 456</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+  </body>
+</html>

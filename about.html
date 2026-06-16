@@ -1,0 +1,465 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link active">About</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta">
+            <i class="fa-solid fa-store"></i> Sell Now
+          </a>
+          <button class="hamburger" id="hamburger" aria-label="Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="how-it-works.html"
+        ><i class="fa-solid fa-circle-play"></i> How It Works</a
+      >
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+      <a href="auth.html"><i class="fa-solid fa-store"></i> Start Selling</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <!-- Page Hero -->
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-heart"></i> Our Story</span
+          >
+          <h1>
+            Empowering
+            <span class="heading-accent">Sierra Leone's</span> Traders
+          </h1>
+          <p>
+            We're building the digital marketplace that connects every farmer,
+            artisan, and buyer across our 12 districts — no borders, no
+            middlemen, just honest trade.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>About Us</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Our Story -->
+      <section class="page-section">
+        <div class="container">
+          <div style="max-width: 800px; margin: 0 auto">
+            <h2>Our Story</h2>
+            <p>
+              SalMart was born in 2026 from a simple observation: Sierra Leone's
+              vibrant market culture from the bustling streets of Freetown to
+              the farming communities of Bo and Kenema  deserved a modern
+              digital platform that truly understood local needs.
+            </p>
+            <p>
+              Our founders, a team of Sierra Leonean entrepreneurs and
+              technologists, saw how talented sellers struggled to reach buyers
+              beyond their immediate communities. Meanwhile, buyers often
+              couldn't find authentic local products without traveling long
+              distances.
+            </p>
+            <p>
+              We built SalMart to solve this problem. Today, we're proud to
+              connect thousands of sellers and buyers across all 12 districts of
+              Sierra Leone, making trade easier, fairer, and more accessible for
+              everyone.
+            </p>
+          </div>
+
+          <!-- Stats -->
+          <div class="about-stats">
+            <div class="about-stat">
+              <div class="about-stat-icon">
+                <i class="fa-solid fa-users"></i>
+              </div>
+              <div class="about-stat-number">4,200+</div>
+              <div class="about-stat-label">Active Sellers</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon"><i class="fa-solid fa-box"></i></div>
+              <div class="about-stat-number">18,000+</div>
+              <div class="about-stat-label">Products Listed</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon"><i class="fa-solid fa-map"></i></div>
+              <div class="about-stat-number">12</div>
+              <div class="about-stat-label">Districts Covered</div>
+            </div>
+            <div class="about-stat">
+              <div class="about-stat-icon">
+                <i class="fa-solid fa-star"></i>
+              </div>
+              <div class="about-stat-number">98%</div>
+              <div class="about-stat-label">Satisfaction Rate</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Mission & Vision -->
+      <section class="page-section alt">
+        <div class="container">
+          <div style="max-width: 800px; margin: 0 auto">
+            <h2>Our Mission</h2>
+            <p>
+              To empower every Sierra Leonean entrepreneur with a free,
+              easy-to-use digital marketplace that connects them to buyers
+              across the nation eliminating middlemen and creating fair
+              economic opportunities for all.
+            </p>
+
+            <h2>Our Vision</h2>
+            <p>
+              A Sierra Leone where every farmer in Tonkolili, every artisan in
+              Kailahun, and every trader in Freetown can grow their business
+              through digital trade building a stronger, more connected
+              economy for generations to come.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Values -->
+      <section class="page-section">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 600px; margin: 0 auto 2rem"
+          >
+            <h2>Our Values</h2>
+            <p>The principles that guide everything we do at SalMart.</p>
+          </div>
+          <div class="values-grid">
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-handshake"></i>
+              </div>
+              <h3>Trust First</h3>
+              <p>
+                Every seller is verified. Every transaction is protected. We
+                build trust into every interaction.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <h3>Community</h3>
+              <p>
+                We're Sierra Leonean-built, for Sierra Leoneans. We understand
+                the local culture and market.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-scale-balanced"></i>
+              </div>
+              <h3>Fairness</h3>
+              <p>
+                No hidden fees. No middlemen taking cuts. Sellers keep what they
+                earn.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-lightbulb"></i>
+              </div>
+              <h3>Innovation</h3>
+              <p>
+                We constantly improve our platform to serve our users better,
+                with features built for local needs.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <h3>Accessibility</h3>
+              <p>
+                Available in English and Krio. Works on any phone. Designed for
+                everyone.
+              </p>
+            </div>
+            <div class="value-card">
+              <div class="value-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3>Security</h3>
+              <p>
+                Your data and transactions are protected with industry-standard
+                security.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Team -->
+      <section class="page-section alt">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 600px; margin: 0 auto 2rem"
+          >
+            <h2>Meet Our Team</h2>
+            <p>The passionate people behind SalMart.</p>
+          </div>
+          <div class="team-grid">
+            <div class="team-card">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=300&h=300&fit=crop&crop=face"
+                  alt="CEO"
+                />
+              </div>
+              <h4>Alhaji Kamara</h4>
+              <div class="team-role">Founder & CEO</div>
+              <p class="team-bio">
+                Former tech lead with 10+ years building digital solutions for
+                West Africa.
+              </p>
+              <div class="team-social">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1531123897727-8f129e1688ce?w=300&h=300&fit=crop&crop=face"
+                  alt="CTO"
+                />
+              </div>
+              <h4>Fatmata Sesay</h4>
+              <div class="team-role">Chief Technology Officer</div>
+              <p class="team-bio">
+                Software engineer passionate about building tech that serves
+                African communities.
+              </p>
+              <div class="team-social">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-github"></i></a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1533108344127-a586d2b02479?w=300&h=300&fit=crop&crop=face"
+                  alt="COO"
+                />
+              </div>
+              <h4>Mohamed Turay</h4>
+              <div class="team-role">Chief Operations Officer</div>
+              <p class="team-bio">
+                Operations expert ensuring smooth service across all 12
+                districts.
+              </p>
+              <div class="team-social">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-x-twitter"></i></a>
+              </div>
+            </div>
+            <div class="team-card">
+              <div class="team-photo">
+                <img
+                  src="https://images.unsplash.com/photo-1530785602389-07594beb8b73?w=300&h=300&fit=crop&crop=face"
+                  alt="CMO"
+                />
+              </div>
+              <h4>Aminata Jalloh</h4>
+              <div class="team-role">Head of Marketing</div>
+              <p class="team-bio">
+                Brand strategist connecting SalMart with sellers and buyers
+                nationwide.
+              </p>
+              <div class="team-social">
+                <a href="#"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="page-section">
+        <div class="container" style="text-align: center">
+          <h2>Ready to Join the Movement?</h2>
+          <p style="max-width: 600px; margin: 0 auto 2rem">
+            Join thousands of Sierra Leoneans already trading on SalMart. It's
+            free, it's easy, and it's built for you.
+          </p>
+          <div
+            style="
+              display: flex;
+              gap: 1rem;
+              justify-content: center;
+              flex-wrap: wrap;
+            "
+          >
+            <a href="auth.html" class="btn-primary"
+              ><i class="fa-solid fa-store"></i> Start Selling</a
+            >
+            <a href="index.html#products" class="btn-outline-green"
+              ><i class="fa-solid fa-bag-shopping"></i> Browse Market</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>
+              Sierra Leone's trusted digital marketplace — connecting buyers and
+              sellers across all 12 districts.
+            </p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://youtube.com/@salmart"
+                target="_blank"
+                rel="noopener"
+                class="social-btn"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About SalMart</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog &amp; News</a></li>
+              <li><a href="careers.html">Careers</a></li>
+              <li><a href="presskit.html">Press Kit</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support &amp; Legal</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i><span>+232 76 123 456</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i><span>hello@salmart.sl</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+  </body>
+</html>

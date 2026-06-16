@@ -1,0 +1,449 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>How It Works — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="how-it-works.html" class="nav-link active">How It Works</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta"
+            ><i class="fa-solid fa-store"></i> Sell Now</a
+          >
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="how-it-works.html"
+        ><i class="fa-solid fa-circle-play"></i> How It Works</a
+      >
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-circle-play"></i> The Process</span
+          >
+          <h1>How <span class="heading-accent">SalMart</span> Works</h1>
+          <p>
+            From creating your account to completing your first sale — it's
+            simple, fast, and free. Here's everything you need to know.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>How It Works</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- For Sellers -->
+      <section class="page-section">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 700px; margin: 0 auto 3rem"
+          >
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-store"></i> For Sellers</span
+            >
+            <h2>Start Selling in 4 Simple Steps</h2>
+            <p>
+              Whether you're a farmer, artisan, or trader, getting started on
+              SalMart takes just minutes.
+            </p>
+          </div>
+
+          <div class="detailed-steps">
+            <div class="detailed-step">
+              <div class="detailed-step-number">01</div>
+              <div class="detailed-step-content">
+                <h3>Create Your Free Account</h3>
+                <p>
+                  Sign up in under 2 minutes with just your name, phone number,
+                  and district. No credit card required, no hidden fees — ever.
+                </p>
+                <ul>
+                  <li>Choose your role: Seller, Farmer, or Artisan</li>
+                  <li>Verify your phone number via SMS</li>
+                  <li>Get your verified seller badge instantly</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number">02</div>
+              <div class="detailed-step-content">
+                <h3>List Your Products</h3>
+                <p>
+                  Take a photo, add a price in NLE, write a description, and
+                  you're live. Our smart system helps you create professional
+                  listings in seconds.
+                </p>
+                <ul>
+                  <li>Upload up to 5 photos per product</li>
+                  <li>Set your price in New Leone (NLE)</li>
+                  <li>Choose your category and location</li>
+                  <li>Products go live instantly</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number">03</div>
+              <div class="detailed-step-content">
+                <h3>Connect with Buyers</h3>
+                <p>
+                  When a buyer is interested, they'll reach you via our in-app
+                  chat or WhatsApp. Negotiate price, delivery method, and timing
+                  directly.
+                </p>
+                <ul>
+                  <li>Real-time chat with buyers</li>
+                  <li>WhatsApp integration for easy communication</li>
+                  <li>Secure messaging protects your privacy</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number">04</div>
+              <div class="detailed-step-content">
+                <h3>Complete the Sale & Get Paid</h3>
+                <p>
+                  Deliver your product, receive payment, and leave a review.
+                  Build your reputation and watch your business grow.
+                </p>
+                <ul>
+                  <li>
+                    Flexible payment: cash, mobile money, or bank transfer
+                  </li>
+                  <li>Arrange delivery or pickup as agreed</li>
+                  <li>Both parties leave reviews to build trust</li>
+                  <li>Top sellers get featured placement</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- For Buyers -->
+      <section class="page-section alt">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 700px; margin: 0 auto 3rem"
+          >
+            <span class="section-eyebrow"
+              ><i class="fa-solid fa-bag-shopping"></i> For Buyers</span
+            >
+            <h2>Shop with Confidence</h2>
+            <p>
+              Find authentic Sierra Leonean products from verified sellers
+              across all 12 districts.
+            </p>
+          </div>
+
+          <div class="detailed-steps">
+            <div class="detailed-step">
+              <div class="detailed-step-number" style="background: var(--gold)">
+                01
+              </div>
+              <div class="detailed-step-content">
+                <h3>Browse & Discover</h3>
+                <p>
+                  Explore thousands of products by category, district, or
+                  seller. Filter by price, rating, and freshness to find exactly
+                  what you need.
+                </p>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number" style="background: var(--gold)">
+                02
+              </div>
+              <div class="detailed-step-content">
+                <h3>Connect with Sellers</h3>
+                <p>
+                  Found something you like? Chat directly with the seller to ask
+                  questions, negotiate price, or arrange delivery.
+                </p>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number" style="background: var(--gold)">
+                03
+              </div>
+              <div class="detailed-step-content">
+                <h3>Pay Securely</h3>
+                <p>
+                  Choose your preferred payment method — cash on delivery,
+                  mobile money (Orange Money, Afrimoney), or bank transfer.
+                </p>
+              </div>
+            </div>
+
+            <div class="detailed-step">
+              <div class="detailed-step-number" style="background: var(--gold)">
+                04
+              </div>
+              <div class="detailed-step-content">
+                <h3>Receive & Review</h3>
+                <p>
+                  Get your product delivered or pick it up. Then leave a review
+                  to help other buyers and reward great sellers.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="page-section">
+        <div class="container" style="max-width: 800px">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Frequently Asked Questions</h2>
+          </div>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is SalMart really free to use?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Yes! Creating an account and listing products is 100% free. We
+                  don't charge commissions or monthly fees. We believe in
+                  empowering Sierra Leonean entrepreneurs without financial
+                  barriers.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I get verified as a seller?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Verification is automatic once you confirm your phone number
+                  via SMS and provide valid identification. Most sellers are
+                  verified within minutes of signing up.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What payment methods are supported?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  We support cash on delivery, Orange Money, Afrimoney, bank
+                  transfers, and other mobile money services popular in Sierra
+                  Leone. Sellers and buyers agree on the payment method
+                  directly.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Can I sell from any district in Sierra Leone?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Absolutely! SalMart covers all 12 districts — Western Area,
+                  Bo, Bombali, Bonthe, Kailahun, Kambia, Kenema, Kono, Moyamba,
+                  Port Loko, Pujehun, and Tonkolili. We connect sellers and
+                  buyers nationwide.
+                </div>
+              </div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I handle delivery?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Delivery is arranged directly between buyer and seller. You
+                  can offer pickup, local delivery, or use third-party delivery
+                  services. Many sellers use motorcycle taxis (okada) for local
+                  deliveries.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem">
+            <a href="auth.html" class="btn-primary"
+              ><i class="fa-solid fa-rocket"></i> Get Started Now</a
+            >
+            <a
+              href="support.html"
+              class="btn-outline-green"
+              style="margin-left: 1rem"
+              ><i class="fa-solid fa-headset"></i> Need Help?</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- FOOTER (same as about.html) -->
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>Sierra Leone's trusted digital marketplace.</p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://youtube.com/@salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="careers.html">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i><span>+232 76 123 456</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i><span>hello@salmart.sl</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script>
+      function toggleFaq(el) {
+        const item = el.parentElement;
+        const isActive = item.classList.contains("active");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((i) => i.classList.remove("active"));
+        if (!isActive) item.classList.add("active");
+      }
+    </script>
+  </body>
+</html>

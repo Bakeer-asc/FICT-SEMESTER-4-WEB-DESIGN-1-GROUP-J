@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Careers — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link active">Careers</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta"
+            ><i class="fa-solid fa-store"></i> Sell Now</a
+          >
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="how-it-works.html"
+        ><i class="fa-solid fa-circle-play"></i> How It Works</a
+      >
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-briefcase"></i> Careers</span
+          >
+          <h1>
+            Build the Future of <span class="heading-accent">Trade</span> in
+            Sierra Leone
+          </h1>
+          <p>
+            Join our team of passionate builders, designers, and problem-solvers
+            creating economic opportunities across West Africa.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Careers</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Why Join Us -->
+      <section class="page-section">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 700px; margin: 0 auto 2rem"
+          >
+            <h2>Why Work at SalMart?</h2>
+            <p>
+              We're more than a workplace — we're a movement to transform Sierra
+              Leone's economy through technology.
+            </p>
+          </div>
+
+          <div class="benefits-grid">
+            <div class="benefit-card">
+              <div class="benefit-icon"><i class="fa-solid fa-heart"></i></div>
+              <h4>Health Insurance</h4>
+              <p>Comprehensive medical coverage for you and your family.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-graduation-cap"></i>
+              </div>
+              <h4>Learning Budget</h4>
+              <p>Annual budget for courses, conferences, and books.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-house-laptop"></i>
+              </div>
+              <h4>Flexible Work</h4>
+              <p>Work from home or our Freetown office — your choice.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-umbrella-beach"></i>
+              </div>
+              <h4>Generous PTO</h4>
+              <p>25 days paid leave plus public holidays.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-chart-line"></i>
+              </div>
+              <h4>Equity Options</h4>
+              <p>Own a piece of the company you're helping build.</p>
+            </div>
+            <div class="benefit-card">
+              <div class="benefit-icon">
+                <i class="fa-solid fa-people-group"></i>
+              </div>
+              <h4>Great Team</h4>
+              <p>Work with talented, friendly people who care.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Open Positions -->
+      <section class="page-section alt">
+        <div class="container">
+          <div
+            style="text-align: center; max-width: 700px; margin: 0 auto 2rem"
+          >
+            <h2>Open Positions</h2>
+            <p>We're looking for talented people to join our growing team.</p>
+          </div>
+
+          <div class="job-list">
+            <div class="job-card">
+              <div class="job-info">
+                <h3>Senior Frontend Developer</h3>
+                <div class="job-tags">
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-location-dot"></i> Freetown /
+                    Remote</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-clock"></i> Full-time</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-layer-group"></i> Engineering</span
+                  >
+                </div>
+                <p class="job-desc">
+                  Build beautiful, responsive interfaces for our marketplace.
+                  React, TypeScript, and CSS expertise required.
+                </p>
+              </div>
+              <div class="job-apply">
+                <a href="#apply" class="btn-primary">Apply Now</a>
+              </div>
+            </div>
+
+            <div class="job-card">
+              <div class="job-info">
+                <h3>Product Designer</h3>
+                <div class="job-tags">
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-location-dot"></i> Freetown</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-clock"></i> Full-time</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-palette"></i> Design</span
+                  >
+                </div>
+                <p class="job-desc">
+                  Design intuitive user experiences for sellers and buyers
+                  across Sierra Leone. Figma and user research skills essential.
+                </p>
+              </div>
+              <div class="job-apply">
+                <a href="#apply" class="btn-primary">Apply Now</a>
+              </div>
+            </div>
+
+            <div class="job-card">
+              <div class="job-info">
+                <h3>Community Manager</h3>
+                <div class="job-tags">
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-location-dot"></i> Nationwide</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-clock"></i> Full-time</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-users"></i> Operations</span
+                  >
+                </div>
+                <p class="job-desc">
+                  Build relationships with sellers across all 12 districts.
+                  Fluent in Krio and English required.
+                </p>
+              </div>
+              <div class="job-apply">
+                <a href="#apply" class="btn-primary">Apply Now</a>
+              </div>
+            </div>
+
+            <div class="job-card">
+              <div class="job-info">
+                <h3>Backend Engineer</h3>
+                <div class="job-tags">
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-location-dot"></i> Remote</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-clock"></i> Full-time</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-server"></i> Engineering</span
+                  >
+                </div>
+                <p class="job-desc">
+                  Build scalable APIs and infrastructure. Node.js, PostgreSQL,
+                  and cloud experience preferred.
+                </p>
+              </div>
+              <div class="job-apply">
+                <a href="#apply" class="btn-primary">Apply Now</a>
+              </div>
+            </div>
+
+            <div class="job-card">
+              <div class="job-info">
+                <h3>Marketing Specialist</h3>
+                <div class="job-tags">
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-location-dot"></i> Freetown</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-clock"></i> Full-time</span
+                  >
+                  <span class="job-tag"
+                    ><i class="fa-solid fa-bullhorn"></i> Marketing</span
+                  >
+                </div>
+                <p class="job-desc">
+                  Drive user growth through social media, content, and local
+                  partnerships. Creative mindset required.
+                </p>
+              </div>
+              <div class="job-apply">
+                <a href="#apply" class="btn-primary">Apply Now</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Application Form -->
+      <section class="page-section" id="apply">
+        <div class="container" style="max-width: 700px">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Apply Now</h2>
+            <p>
+              Interested? Send us your details and we'll get back to you within
+              5 business days.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <form onsubmit="handleJobApplication(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-user"></i> First Name</label>
+                  <input type="text" required placeholder="Your first name" />
+                </div>
+                <div class="form-group">
+                  <label><i class="fa-solid fa-user"></i> Last Name</label>
+                  <input type="text" required placeholder="Your last name" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-envelope"></i> Email</label>
+                <input type="email" required placeholder="you@example.com" />
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-phone"></i> Phone</label>
+                <input type="tel" required placeholder="+232 76 000 000" />
+              </div>
+              <div class="form-group">
+                <label
+                  ><i class="fa-solid fa-briefcase"></i> Position Applying
+                  For</label
+                >
+                <select required>
+                  <option value="">Select Position</option>
+                  <option>Senior Frontend Developer</option>
+                  <option>Product Designer</option>
+                  <option>Community Manager</option>
+                  <option>Backend Engineer</option>
+                  <option>Marketing Specialist</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label
+                  ><i class="fa-solid fa-link"></i> LinkedIn / Portfolio
+                  URL</label
+                >
+                <input
+                  type="url"
+                  placeholder="https://linkedin.com/in/yourprofile"
+                />
+              </div>
+              <div class="form-group">
+                <label
+                  ><i class="fa-solid fa-message"></i> Why do you want to work
+                  at SalMart?</label
+                >
+                <textarea
+                  rows="4"
+                  required
+                  placeholder="Tell us about yourself and why you're a great fit..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-paper-plane"></i> Submit Application
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>Sierra Leone's trusted digital marketplace.</p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="careers.html">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i
+              ><span>careers@salmart.sl</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script>
+      function handleJobApplication(e) {
+        e.preventDefault();
+        showToast("Application submitted! We'll be in touch soon. 🎉");
+        e.target.reset();
+      }
+    </script>
+  </body>
+</html>

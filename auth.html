@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Auth — SaloneMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/auth.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <div class="auth-page">
+      <div class="auth-bg-blob blob-1"></div>
+      <div class="auth-bg-blob blob-2"></div>
+
+      <div class="auth-container">
+        <div class="auth-header">
+          <a href="index.html" class="auth-logo-link">
+            <div class="auth-logo">Salone<em>Mart</em></div>
+          </a>
+          <p class="auth-subtitle">Sierra Leone's Digital Marketplace</p>
+        </div>
+
+        <div class="auth-tabs">
+          <div
+            class="auth-tab active"
+            data-tab="login"
+            onclick="switchAuthTab('login')"
+          >
+            Sign In
+          </div>
+          <div
+            class="auth-tab"
+            data-tab="register"
+            onclick="switchAuthTab('register')"
+          >
+            Create Account
+          </div>
+        </div>
+
+        <div class="auth-body">
+          <!-- Login Form -->
+          <form
+            class="auth-form active"
+            id="loginForm"
+            onsubmit="handleAuthLogin(event)"
+          >
+            <div class="form-group">
+              <label for="loginEmail"
+                ><i class="fa-solid fa-envelope"></i> Email Address</label
+              >
+              <input
+                type="email"
+                id="loginEmail"
+                placeholder="you@example.com"
+                required
+              />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="loginPassword"
+                ><i class="fa-solid fa-lock"></i> Password</label
+              >
+              <div class="password-toggle">
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Enter your password"
+                  required
+                />
+                <i
+                  class="fa-solid fa-eye"
+                  onclick="togglePasswordVisibility('loginPassword', this)"
+                ></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-options">
+              <label class="checkbox-label">
+                <input type="checkbox" id="rememberMe" />
+                <span>Remember me</span>
+              </label>
+              <a href="#" class="forgot-link">Forgot password?</a>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-right-to-bracket"></i> Sign In
+            </button>
+
+            <div class="form-divider"><span>or continue with</span></div>
+
+            <div class="social-auth">
+              <button
+                type="button"
+                class="social-btn-auth"
+                onclick="socialAuth('google')"
+              >
+                <i class="fa-brands fa-google google-icon"></i> Google
+              </button>
+              <button
+                type="button"
+                class="social-btn-auth"
+                onclick="socialAuth('facebook')"
+              >
+                <i class="fa-brands fa-facebook-f fb-icon"></i> Facebook
+              </button>
+            </div>
+          </form>
+
+          <!-- Register Form -->
+          <form
+            class="auth-form"
+            id="registerForm"
+            onsubmit="handleAuthRegister(event)"
+          >
+            <div class="form-row">
+              <div class="form-group">
+                <label for="regFName"
+                  ><i class="fa-solid fa-user"></i> First Name</label
+                >
+                <input
+                  type="text"
+                  id="regFName"
+                  placeholder="e.g. Aminata"
+                  required
+                />
+                <span class="field-error"></span>
+              </div>
+              <div class="form-group">
+                <label for="regLName"
+                  ><i class="fa-solid fa-user"></i> Last Name</label
+                >
+                <input
+                  type="text"
+                  id="regLName"
+                  placeholder="e.g. Koroma"
+                  required
+                />
+                <span class="field-error"></span>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regEmail"
+                ><i class="fa-solid fa-envelope"></i> Email Address</label
+              >
+              <input
+                type="email"
+                id="regEmail"
+                placeholder="you@example.com"
+                required
+              />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="regPhone"
+                ><i class="fa-solid fa-phone"></i> Phone Number</label
+              >
+              <input
+                type="tel"
+                id="regPhone"
+                placeholder="+232 76 000 000"
+                required
+              />
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label for="regDistrict"
+                ><i class="fa-solid fa-map-location-dot"></i> District</label
+              >
+              <select id="regDistrict" required>
+                <option value="">Select District</option>
+                <option>Western Area (Freetown)</option>
+                <option>Bo</option>
+                <option>Kenema</option>
+                <option>Makeni (Bombali)</option>
+                <option>Kailahun</option>
+                <option>Koidu (Kono)</option>
+                <option>Moyamba</option>
+                <option>Port Loko</option>
+                <option>Pujehun</option>
+                <option>Tonkolili</option>
+                <option>Kambia</option>
+                <option>Bonthe</option>
+              </select>
+              <span class="field-error"></span>
+            </div>
+
+            <div class="form-group">
+              <label><i class="fa-solid fa-briefcase"></i> I want to...</label>
+              <div class="role-selector">
+                <label class="role-option">
+                  <input type="radio" name="regRole" value="buyer" checked />
+                  <span><i class="fa-solid fa-bag-shopping"></i> Buy</span>
+                </label>
+                <label class="role-option">
+                  <input type="radio" name="regRole" value="seller" />
+                  <span><i class="fa-solid fa-store"></i> Sell</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="regPassword"
+                ><i class="fa-solid fa-lock"></i> Password</label
+              >
+              <div class="password-toggle">
+                <input
+                  type="password"
+                  id="regPassword"
+                  placeholder="Minimum 6 characters"
+                  required
+                />
+                <i
+                  class="fa-solid fa-eye"
+                  onclick="togglePasswordVisibility('regPassword', this)"
+                ></i>
+              </div>
+              <span class="field-error"></span>
+            </div>
+
+            <label class="checkbox-label terms-check">
+              <input type="checkbox" id="agreeTerms" required />
+              <span
+                >I agree to the <a href="#">Terms of Service</a> and
+                <a href="#">Privacy Policy</a></span
+              >
+            </label>
+
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-user-plus"></i> Create Account
+            </button>
+
+            <div class="form-divider"><span>or sign up with</span></div>
+
+            <div class="social-auth">
+              <button
+                type="button"
+                class="social-btn-auth"
+                onclick="socialAuth('google')"
+              >
+                <i class="fa-brands fa-google google-icon"></i> Google
+              </button>
+              <button
+                type="button"
+                class="social-btn-auth"
+                onclick="socialAuth('facebook')"
+              >
+                <i class="fa-brands fa-facebook-f fb-icon"></i> Facebook
+              </button>
+            </div>
+          </form>
+        </div>
+
+        <div class="auth-footer">
+          <a href="index.html"
+            ><i class="fa-solid fa-arrow-left"></i> Back to Home</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg"></span>
+    </div>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/auth.js"></script>
+  </body>
+</html>

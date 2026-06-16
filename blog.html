@@ -1,0 +1,404 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog & News — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="blog.html" class="nav-link active">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="support.html" class="nav-link">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta"
+            ><i class="fa-solid fa-store"></i> Sell Now</a
+          >
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="how-it-works.html"
+        ><i class="fa-solid fa-circle-play"></i> How It Works</a
+      >
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-newspaper"></i> Blog & News</span
+          >
+          <h1>Stories from <span class="heading-accent">SalMart</span></h1>
+          <p>
+            Insights, tips, and success stories from Sierra Leone's digital
+            marketplace.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Blog</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured Post -->
+      <section class="page-section">
+        <div class="container">
+          <div class="blog-featured">
+            <div class="blog-featured-img">
+              <img
+                src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&h=500&fit=crop"
+                alt="Featured"
+              />
+            </div>
+            <div class="blog-featured-content">
+              <span class="blog-tag">Featured</span>
+              <h3>
+                How SalMart Helped 500 Farmers Double Their Income in 2025
+              </h3>
+              <p>
+                Discover how digital trade is transforming agriculture in Sierra
+                Leone, with real stories from farmers in Bo, Tonkolili, and
+                Bombali districts who've grown their businesses through our
+                platform.
+              </p>
+              <div class="blog-meta">
+                <span
+                  ><i class="fa-regular fa-calendar"></i> June 10, 2026</span
+                >
+                <span><i class="fa-regular fa-clock"></i> 8 min read</span>
+              </div>
+              <a href="#" class="btn-primary" style="margin-top: 1.5rem"
+                >Read Full Story</a
+              >
+            </div>
+          </div>
+
+          <!-- Blog Grid -->
+          <h2 style="margin-top: 3rem">Latest Articles</h2>
+          <div class="blog-grid">
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1558171813-4c088753af8f?w=600&h=400&fit=crop"
+                  alt="Gara"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">Fashion</span>
+                <h3>
+                  The Revival of Salone Gara: Tradition Meets Digital Trade
+                </h3>
+                <p>
+                  How traditional tie-dye fabric is finding new audiences
+                  through online marketplaces.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> June 5, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 5 min</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1540420773420-3366772f4999?w=600&h=400&fit=crop"
+                  alt="Produce"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">Tips</span>
+                <h3>10 Tips for Taking Great Product Photos with Your Phone</h3>
+                <p>
+                  You don't need a professional camera. Learn how to make your
+                  products shine using just your smartphone.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> May 28, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 4 min</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1534939561126-855b8675edd7?w=600&h=400&fit=crop"
+                  alt="Fish"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">News</span>
+                <h3>SalMart Expands to All 12 Districts of Sierra Leone</h3>
+                <p>
+                  We're excited to announce that our platform now serves every
+                  district, from Kambia to Pujehun.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> May 20, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 3 min</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=600&h=400&fit=crop"
+                  alt="Palm Oil"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">Success Story</span>
+                <h3>
+                  From Village Market to National Brand: Mama Fanta's Journey
+                </h3>
+                <p>
+                  How one spice seller in Bo used SalMart to turn her small
+                  business into a recognized brand.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> May 15, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 6 min</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600&h=400&fit=crop"
+                  alt="Tech"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">Technology</span>
+                <h3>
+                  Mobile Money Integration: Making Payments Easier Than Ever
+                </h3>
+                <p>
+                  Our new Orange Money and Afrimoney integration makes
+                  transactions seamless for everyone.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> May 8, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 4 min</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="blog-card">
+              <div class="blog-card-img">
+                <img
+                  src="https://images.unsplash.com/photo-1459411552884-841db9b3cc2a?w=600&h=400&fit=crop"
+                  alt="Crafts"
+                />
+              </div>
+              <div class="blog-card-body">
+                <span class="blog-tag">Community</span>
+                <h3>
+                  Meet the Artisans: Preserving Sierra Leonean Craft Heritage
+                </h3>
+                <p>
+                  Discover the talented craftspeople keeping traditional arts
+                  alive through digital trade.
+                </p>
+                <div class="blog-meta">
+                  <span
+                    ><i class="fa-regular fa-calendar"></i> April 30, 2026</span
+                  >
+                  <span><i class="fa-regular fa-clock"></i> 7 min</span>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div style="text-align: center; margin-top: 3rem">
+            <button class="btn-outline-green">
+              <i class="fa-solid fa-rotate"></i> Load More Articles
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="page-section alt">
+        <div class="container" style="text-align: center; max-width: 600px">
+          <h2>Stay Updated</h2>
+          <p>
+            Subscribe to our newsletter for the latest news, tips, and success
+            stories from SalMart.
+          </p>
+          <form
+            style="
+              display: flex;
+              gap: 0.5rem;
+              margin-top: 1.5rem;
+              flex-wrap: wrap;
+              justify-content: center;
+            "
+          >
+            <input
+              type="email"
+              placeholder="your@email.com"
+              style="
+                flex: 1;
+                min-width: 250px;
+                padding: 0.85rem 1.25rem;
+                border: 1.5px solid var(--border);
+                border-radius: var(--radius-sm);
+                font-family: var(--ff-body);
+              "
+            />
+            <button type="submit" class="btn-primary">Subscribe</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>Sierra Leone's trusted digital marketplace.</p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://youtube.com/@salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="careers.html">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Support</h4>
+            <ul>
+              <li><a href="support.html">Help Center</a></li>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i><span>hello@salmart.sl</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+  </body>
+</html>

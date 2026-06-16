@@ -1,0 +1,356 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Seller Dashboard — SaloneMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/dashboard.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Salone<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="#products" class="nav-link active">My Products</a>
+          <a href="#orders" class="nav-link">Orders</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-icon-btn" onclick="logout()" aria-label="Logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard">
+      <div class="dash-header">
+        <div class="dash-header-inner">
+          <div class="dash-welcome">
+            <h1>
+              Seller Dashboard
+              <span class="verified-badge">
+                <i class="fa-solid fa-circle-check"></i> Verified
+              </span>
+            </h1>
+            <p id="sellerName">Manage your products and orders</p>
+          </div>
+          <button class="btn-primary" onclick="openModal()">
+            <i class="fa-solid fa-plus"></i> Add New Product
+          </button>
+        </div>
+      </div>
+
+      <div class="dash-content">
+        <div class="dash-grid">
+          <!-- Sidebar -->
+          <aside class="dash-sidebar">
+            <div class="dash-menu">
+              <div
+                class="dash-menu-item active"
+                data-tab="overview"
+                onclick="switchSellerTab('overview')"
+              >
+                <i class="fa-solid fa-chart-pie"></i> Overview
+              </div>
+              <div
+                class="dash-menu-item"
+                data-tab="products"
+                onclick="switchSellerTab('products')"
+              >
+                <i class="fa-solid fa-box"></i> My Products
+              </div>
+              <div
+                class="dash-menu-item"
+                data-tab="orders"
+                onclick="switchSellerTab('orders')"
+              >
+                <i class="fa-solid fa-shopping-bag"></i> Orders
+              </div>
+              <div
+                class="dash-menu-item"
+                data-tab="analytics"
+                onclick="switchSellerTab('analytics')"
+              >
+                <i class="fa-solid fa-chart-line"></i> Analytics
+              </div>
+              <div
+                class="dash-menu-item"
+                onclick="window.location.href = 'index.html'"
+              >
+                <i class="fa-solid fa-house"></i> View Marketplace
+              </div>
+              <div class="dash-menu-item logout-item" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="dash-main">
+            <!-- Overview Tab -->
+            <div class="dash-tab active" id="overviewTab">
+              <div class="stats-grid">
+                <div class="stat-box stat-green">
+                  <div class="stat-label">Total Sales</div>
+                  <div class="stat-value" id="totalSales">NLE 0</div>
+                  <div class="stat-change">↑ 12% from last month</div>
+                </div>
+                <div class="stat-box stat-gold">
+                  <div class="stat-label">Active Products</div>
+                  <div class="stat-value" id="activeProducts">0</div>
+                  <div class="stat-change">3 pending approval</div>
+                </div>
+                <div class="stat-box stat-blue">
+                  <div class="stat-label">Total Orders</div>
+                  <div class="stat-value" id="totalOrders">0</div>
+                  <div class="stat-change">5 new this week</div>
+                </div>
+                <div class="stat-box stat-purple">
+                  <div class="stat-label">Customer Rating</div>
+                  <div class="stat-value" id="avgRating">4.8</div>
+                  <div class="stat-change">Based on 124 reviews</div>
+                </div>
+              </div>
+
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">Recent Orders</h2>
+                  <button
+                    class="btn-outline-green"
+                    onclick="switchSellerTab('orders')"
+                  >
+                    View All
+                  </button>
+                </div>
+                <div class="orders-list" id="recentOrders">
+                  <div class="empty-state">
+                    <i class="fa-solid fa-box-open"></i>
+                    <p>No orders yet</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Products Tab -->
+            <div class="dash-tab" id="productsTab">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">My Products</h2>
+                  <div class="search-box">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input
+                      type="text"
+                      placeholder="Search products..."
+                      onkeyup="searchProducts(this.value)"
+                    />
+                  </div>
+                </div>
+                <div class="table-wrap">
+                  <table class="products-table">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Stock</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                      </tr>
+                    </thead>
+                    <tbody id="productsTable">
+                      <tr>
+                        <td colspan="5" class="table-empty">
+                          No products yet. Click "Add New Product" to get
+                          started.
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="dash-tab" id="ordersTab">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">All Orders</h2>
+                  <div class="filter-bar">
+                    <button
+                      class="filter-btn active"
+                      data-status="all"
+                      onclick="filterSellerOrders('all', this)"
+                    >
+                      All
+                    </button>
+                    <button
+                      class="filter-btn"
+                      data-status="pending"
+                      onclick="filterSellerOrders('pending', this)"
+                    >
+                      Pending
+                    </button>
+                    <button
+                      class="filter-btn"
+                      data-status="completed"
+                      onclick="filterSellerOrders('completed', this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+                <div class="orders-list" id="allOrders">
+                  <div class="empty-state">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <p>No orders found</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Analytics Tab -->
+            <div class="dash-tab" id="analyticsTab">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">Sales Analytics</h2>
+                </div>
+                <div class="empty-state">
+                  <i class="fa-solid fa-chart-line"></i>
+                  <p>Analytics dashboard coming soon</p>
+                  <p class="empty-sub">
+                    Track your sales trends, top products, and customer insights
+                    here.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Product Modal -->
+    <div class="modal" id="productModal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add New Product</h2>
+          <button class="modal-close" onclick="closeModal()">
+            <i class="fa-solid fa-xmark"></i>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="addProductForm" onsubmit="addProduct(event)">
+            <div class="form-group">
+              <label for="prodName"
+                ><i class="fa-solid fa-tag"></i> Product Name</label
+              >
+              <input
+                type="text"
+                id="prodName"
+                placeholder="e.g. Premium Salone Rice"
+                required
+              />
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="prodPrice"
+                  ><i class="fa-solid fa-coins"></i> Price (NLE)</label
+                >
+                <input
+                  type="number"
+                  id="prodPrice"
+                  placeholder="180"
+                  required
+                />
+              </div>
+              <div class="form-group">
+                <label for="prodStock"
+                  ><i class="fa-solid fa-boxes-stacked"></i> Stock
+                  Quantity</label
+                >
+                <input type="number" id="prodStock" placeholder="50" required />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="prodCategory"
+                ><i class="fa-solid fa-layer-group"></i> Category</label
+              >
+              <select id="prodCategory" required>
+                <option value="">Select Category</option>
+                <option value="produce">Fresh Produce</option>
+                <option value="fish">Fish & Seafood</option>
+                <option value="fashion">Fashion & Gara</option>
+                <option value="spices">Spices & Oil</option>
+                <option value="crafts">Crafts & Art</option>
+                <option value="electronics">Electronics</option>
+                <option value="livestock">Livestock</option>
+                <option value="building">Building Materials</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="prodDesc"
+                ><i class="fa-solid fa-align-left"></i> Description</label
+              >
+              <textarea
+                id="prodDesc"
+                rows="3"
+                placeholder="Describe your product..."
+                required
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="prodImage"
+                ><i class="fa-solid fa-image"></i> Product Image URL</label
+              >
+              <input
+                type="url"
+                id="prodImage"
+                placeholder="https://images.unsplash.com/..."
+              />
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <i class="fa-solid fa-plus"></i> Add Product
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="modal-overlay" id="modalOverlay" onclick="closeModal()"></div>
+
+    <!-- TOAST -->
+    <div id="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg"></span>
+    </div>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script src="./JAVASCRIPT/seller-dashboard.js"></script>
+  </body>
+</html>

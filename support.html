@@ -1,0 +1,531 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Support & Help Center — SalMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/pages.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Sal<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="about.html" class="nav-link">About</a>
+          <a href="how-it-works.html" class="nav-link">How It Works</a>
+          <a href="blog.html" class="nav-link">Blog</a>
+          <a href="careers.html" class="nav-link">Careers</a>
+          <a href="support.html" class="nav-link active">Support</a>
+        </nav>
+        <div class="nav-actions">
+          <a href="auth.html" class="btn-nav-cta"
+            ><i class="fa-solid fa-store"></i> Sell Now</a
+          >
+          <button class="hamburger" id="hamburger">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-nav" id="mobileNav">
+      <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="about.html"><i class="fa-solid fa-circle-info"></i> About</a>
+      <a href="how-it-works.html"
+        ><i class="fa-solid fa-circle-play"></i> How It Works</a
+      >
+      <a href="blog.html"><i class="fa-solid fa-newspaper"></i> Blog</a>
+      <a href="careers.html"><i class="fa-solid fa-briefcase"></i> Careers</a>
+      <a href="support.html"><i class="fa-solid fa-headset"></i> Support</a>
+    </div>
+    <div
+      class="mobile-overlay"
+      id="mobileOverlay"
+      onclick="closeMobile()"
+    ></div>
+
+    <main>
+      <section class="page-hero">
+        <div class="page-hero-content">
+          <span class="section-eyebrow"
+            ><i class="fa-solid fa-headset"></i> Help Center</span
+          >
+          <h1>How Can We <span class="heading-accent">Help?</span></h1>
+          <p>
+            Find answers to common questions, browse help topics, or contact our
+            support team.
+          </p>
+          <div class="breadcrumb">
+            <a href="index.html">Home</a>
+            <i class="fa-solid fa-chevron-right"></i>
+            <span>Support</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search -->
+      <section style="padding: 0 1.5rem">
+        <div class="support-search">
+          <div class="support-search-box">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input
+              type="text"
+              placeholder="Search for help articles..."
+              id="supportSearch"
+            />
+          </div>
+        </div>
+      </section>
+
+      <!-- Help Categories -->
+      <section class="page-section">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Browse Help Topics</h2>
+          </div>
+
+          <div class="help-categories">
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-user-plus"></i>
+              </div>
+              <h3>Getting Started</h3>
+              <p>
+                New to SalMart? Learn how to create an account and start
+                trading.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-store"></i>
+              </div>
+              <h3>Selling on SalMart</h3>
+              <p>
+                Tips for listing products, pricing, and managing your seller
+                profile.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-bag-shopping"></i>
+              </div>
+              <h3>Buying Guide</h3>
+              <p>
+                How to find products, contact sellers, and complete purchases
+                safely.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-credit-card"></i>
+              </div>
+              <h3>Payments</h3>
+              <p>
+                Learn about payment methods, mobile money, and transaction
+                security.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-truck"></i>
+              </div>
+              <h3>Delivery</h3>
+              <p>
+                Understand delivery options, timelines, and tracking your
+                orders.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-shield-halved"></i>
+              </div>
+              <h3>Safety & Trust</h3>
+              <p>
+                Stay safe while trading. Report issues and resolve disputes.
+              </p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-gear"></i>
+              </div>
+              <h3>Account Settings</h3>
+              <p>Manage your profile, notifications, and privacy settings.</p>
+            </div>
+            <div class="help-category">
+              <div class="help-category-icon">
+                <i class="fa-solid fa-mobile-screen"></i>
+              </div>
+              <h3>Technical Issues</h3>
+              <p>Troubleshoot app problems, login issues, and connectivity.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section class="page-section alt">
+        <div class="container" style="max-width: 800px">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Frequently Asked Questions</h2>
+            <p>Quick answers to the most common questions.</p>
+          </div>
+
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I create an account?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Click "Sell Now" or "Create Account" on our homepage. Fill in
+                  your name, email, phone number, and select your district.
+                  You'll receive an SMS verification code. The whole process
+                  takes less than 2 minutes!
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Is SalMart really free?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Yes! Creating an account, listing products, and browsing is
+                  100% free. We don't charge commissions or monthly fees. We
+                  believe in empowering Sierra Leonean entrepreneurs.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I verify my seller account?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Verification is automatic after you confirm your phone number
+                  via SMS. You'll receive a verified badge on your profile
+                  within minutes.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>What payment methods are available?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  We support cash on delivery, Orange Money, Afrimoney, bank
+                  transfers, and other mobile money services. Buyers and sellers
+                  agree on payment method directly.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I report a problem with a seller or buyer?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Use the "Report" button on any user's profile or transaction.
+                  Our trust & safety team reviews all reports within 24 hours.
+                  You can also email us at safety@salmart.sl.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Can I sell from any district in Sierra Leone?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Absolutely! SalMart covers all 12 districts. Whether you're in
+                  Freetown, Bo, Kenema, Makeni, or any other district, you can
+                  sell to buyers nationwide.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>How do I delete my account?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Go to your account settings and click "Delete Account." This
+                  action is permanent. Alternatively, email us at
+                  support@salmart.sl and we'll help you.
+                </div>
+              </div>
+            </div>
+
+            <div class="faq-item">
+              <div class="faq-question" onclick="toggleFaq(this)">
+                <span>Do you have a mobile app?</span>
+                <i class="fa-solid fa-chevron-down"></i>
+              </div>
+              <div class="faq-answer">
+                <div class="faq-answer-inner">
+                  Our platform is fully mobile-optimized and works on any
+                  smartphone browser. A dedicated mobile app for iOS and Android
+                  is coming soon!
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Methods -->
+      <section class="page-section">
+        <div class="container">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Still Need Help?</h2>
+            <p>
+              Our support team is here for you. Choose your preferred contact
+              method.
+            </p>
+          </div>
+
+          <div class="contact-cards">
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fa-brands fa-whatsapp"></i>
+              </div>
+              <h4>WhatsApp</h4>
+              <p>Chat with us directly on WhatsApp for quick support.</p>
+              <a href="https://wa.me/23278999000" target="_blank"
+                >+232 78 999 000 →</a
+              >
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fa-solid fa-envelope"></i>
+              </div>
+              <h4>Email</h4>
+              <p>Send us an email and we'll respond within 24 hours.</p>
+              <a href="mailto:support@salmart.sl">support@salmart.sl →</a>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fa-solid fa-phone"></i>
+              </div>
+              <h4>Phone</h4>
+              <p>Call us Monday–Saturday, 8am–6pm.</p>
+              <a href="tel:+23276123456">+232 76 123 456 →</a>
+            </div>
+            <div class="contact-card">
+              <div class="contact-card-icon">
+                <i class="fa-solid fa-location-dot"></i>
+              </div>
+              <h4>Visit Us</h4>
+              <p>Come see us at our Freetown office.</p>
+              <a href="#">14 Siaka Stevens St →</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Form -->
+      <section class="page-section alt">
+        <div class="container" style="max-width: 700px">
+          <div style="text-align: center; margin-bottom: 2rem">
+            <h2>Send Us a Message</h2>
+            <p>
+              Fill out the form below and our team will get back to you soon.
+            </p>
+          </div>
+
+          <div class="form-card">
+            <form onsubmit="handleSupportForm(event)">
+              <div class="form-row">
+                <div class="form-group">
+                  <label><i class="fa-solid fa-user"></i> Your Name</label>
+                  <input type="text" required placeholder="Full name" />
+                </div>
+                <div class="form-group">
+                  <label><i class="fa-solid fa-envelope"></i> Email</label>
+                  <input type="email" required placeholder="you@example.com" />
+                </div>
+              </div>
+              <div class="form-group">
+                <label
+                  ><i class="fa-solid fa-phone"></i> Phone (optional)</label
+                >
+                <input type="tel" placeholder="+232 76 000 000" />
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-tag"></i> Topic</label>
+                <select required>
+                  <option value="">Select a topic</option>
+                  <option>Account Issues</option>
+                  <option>Payment Problems</option>
+                  <option>Report a User</option>
+                  <option>Technical Issue</option>
+                  <option>Seller Support</option>
+                  <option>Buyer Support</option>
+                  <option>Partnership Inquiry</option>
+                  <option>Other</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label><i class="fa-solid fa-message"></i> Your Message</label>
+                <textarea
+                  rows="5"
+                  required
+                  placeholder="Tell us how we can help..."
+                ></textarea>
+              </div>
+              <button type="submit" class="btn-submit">
+                <i class="fa-solid fa-paper-plane"></i> Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer id="contact">
+      <div class="footer-top">
+        <div class="container footer-grid">
+          <div class="footer-brand">
+            <a href="index.html" class="nav-logo footer-logo-link">
+              <span class="logo-mark"
+                ><i class="fa-solid fa-basket-shopping"></i
+              ></span>
+              <span class="logo-name">Sal<em>Mart</em></span>
+            </a>
+            <p>Sierra Leone's trusted digital marketplace.</p>
+            <div class="social-row">
+              <a
+                href="https://facebook.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-facebook-f"></i
+              ></a>
+              <a
+                href="https://instagram.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-instagram"></i
+              ></a>
+              <a
+                href="https://twitter.com/salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-x-twitter"></i
+              ></a>
+              <a
+                href="https://wa.me/23278999000"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-whatsapp"></i
+              ></a>
+              <a
+                href="https://youtube.com/@salmart"
+                target="_blank"
+                class="social-btn"
+                ><i class="fa-brands fa-youtube"></i
+              ></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="how-it-works.html">How It Works</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="careers.html">Careers</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="privacy.html">Privacy Policy</a></li>
+              <li><a href="terms.html">Terms of Service</a></li>
+              <li><a href="support.html">Support</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Contact</h4>
+            <div class="contact-item">
+              <i class="fa-solid fa-location-dot"></i
+              ><span>14 Siaka Stevens St, Freetown</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-phone"></i><span>+232 76 123 456</span>
+            </div>
+            <div class="contact-item">
+              <i class="fa-solid fa-envelope"></i
+              ><span>support@salmart.sl</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <p>
+            © 2026 SalMart. Made with
+            <i class="fa-solid fa-heart heart-gold"></i> for Sierra Leone 🇸🇱
+          </p>
+          <div class="footer-legal">
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <a href="support.html">Support</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script>
+      function toggleFaq(el) {
+        const item = el.parentElement;
+        const isActive = item.classList.contains("active");
+        document
+          .querySelectorAll(".faq-item")
+          .forEach((i) => i.classList.remove("active"));
+        if (!isActive) item.classList.add("active");
+      }
+
+      function handleSupportForm(e) {
+        e.preventDefault();
+        showToast("Message sent! We'll get back to you within 24 hours. 📩");
+        e.target.reset();
+      }
+    </script>
+  </body>
+</html>

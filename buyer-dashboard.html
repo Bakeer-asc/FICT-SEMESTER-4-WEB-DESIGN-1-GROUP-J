@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Buyer Dashboard — SaloneMart</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./CSS/common.css" />
+    <link rel="stylesheet" href="./CSS/layout.css" />
+    <link rel="stylesheet" href="./CSS/dashboard.css" />
+    <link rel="stylesheet" href="./CSS/responsive.css" />
+  </head>
+  <body>
+    <!-- NAVBAR -->
+    <header id="navbar" class="solid">
+      <div class="nav-container">
+        <a href="index.html" class="nav-logo">
+          <span class="logo-mark"
+            ><i class="fa-solid fa-basket-shopping"></i
+          ></span>
+          <span class="logo-name">Salone<em>Mart</em></span>
+        </a>
+        <nav class="nav-links">
+          <a href="index.html" class="nav-link">Home</a>
+          <a href="index.html#products" class="nav-link">Browse</a>
+          <a href="#orders" class="nav-link active">My Orders</a>
+        </nav>
+        <div class="nav-actions">
+          <button class="nav-icon-btn cart-btn" onclick="toggleDashCart()">
+            <i class="fa-solid fa-bag-shopping"></i>
+            <span class="cart-badge" id="cartCount">0</span>
+          </button>
+          <button class="nav-icon-btn" onclick="logout()" aria-label="Logout">
+            <i class="fa-solid fa-right-from-bracket"></i>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <div class="dashboard">
+      <div class="dash-header">
+        <div class="dash-header-inner">
+          <div class="dash-welcome">
+            <h1 id="welcomeName">Welcome back!</h1>
+            <p>Here's what's happening with your account today</p>
+          </div>
+          <div class="dash-actions">
+            <div class="dash-nav">
+              <button
+                class="dash-nav-btn active"
+                data-tab="overview"
+                onclick="switchBuyerTab('overview')"
+              >
+                Overview
+              </button>
+              <button
+                class="dash-nav-btn"
+                data-tab="orders"
+                onclick="switchBuyerTab('orders')"
+              >
+                My Orders
+              </button>
+              <button
+                class="dash-nav-btn"
+                data-tab="saved"
+                onclick="switchBuyerTab('saved')"
+              >
+                Saved Items
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="dash-content">
+        <div class="dash-grid">
+          <!-- Sidebar -->
+          <aside class="dash-sidebar">
+            <div class="dash-menu">
+              <div
+                class="dash-menu-item active"
+                data-tab="overview"
+                onclick="switchBuyerTab('overview')"
+              >
+                <i class="fa-solid fa-chart-pie"></i> Overview
+              </div>
+              <div
+                class="dash-menu-item"
+                data-tab="orders"
+                onclick="switchBuyerTab('orders')"
+              >
+                <i class="fa-solid fa-box"></i> My Orders
+              </div>
+              <div
+                class="dash-menu-item"
+                data-tab="saved"
+                onclick="switchBuyerTab('saved')"
+              >
+                <i class="fa-solid fa-heart"></i> Saved Items
+              </div>
+              <div
+                class="dash-menu-item"
+                onclick="window.location.href = 'index.html#products'"
+              >
+                <i class="fa-solid fa-store"></i> Browse Market
+              </div>
+              <div
+                class="dash-menu-item"
+                onclick="window.location.href = 'index.html#sellers'"
+              >
+                <i class="fa-solid fa-users"></i> Top Sellers
+              </div>
+              <div class="dash-menu-item logout-item" onclick="logout()">
+                <i class="fa-solid fa-right-from-bracket"></i> Sign Out
+              </div>
+            </div>
+          </aside>
+
+          <!-- Main Content -->
+          <main class="dash-main">
+            <!-- Overview Tab -->
+            <div class="dash-tab active" id="overviewTab">
+              <div class="stats-grid">
+                <div class="stat-box stat-green">
+                  <div class="stat-label">Total Orders</div>
+                  <div class="stat-value" id="totalOrders">0</div>
+                </div>
+                <div class="stat-box stat-gold">
+                  <div class="stat-label">Total Spent</div>
+                  <div class="stat-value" id="totalSpent">NLE 0</div>
+                </div>
+                <div class="stat-box stat-blue">
+                  <div class="stat-label">Active Cart</div>
+                  <div class="stat-value" id="activeCarts">0</div>
+                </div>
+                <div class="stat-box stat-purple">
+                  <div class="stat-label">Saved Items</div>
+                  <div class="stat-value" id="savedCount">0</div>
+                </div>
+              </div>
+
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">Recent Orders</h2>
+                  <button
+                    class="btn-outline-green"
+                    onclick="switchBuyerTab('orders')"
+                  >
+                    View All
+                  </button>
+                </div>
+                <div class="order-list" id="recentOrders">
+                  <div class="empty-state">
+                    <i class="fa-solid fa-box-open"></i>
+                    <p>No orders yet</p>
+                    <a
+                      href="index.html#products"
+                      class="btn-primary btn-inline-flex"
+                    >
+                      Start Shopping
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Orders Tab -->
+            <div class="dash-tab" id="ordersTab">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">My Orders</h2>
+                  <div class="filter-bar">
+                    <button
+                      class="filter-btn active"
+                      data-status="all"
+                      onclick="filterBuyerOrders('all', this)"
+                    >
+                      All
+                    </button>
+                    <button
+                      class="filter-btn"
+                      data-status="pending"
+                      onclick="filterBuyerOrders('pending', this)"
+                    >
+                      Pending
+                    </button>
+                    <button
+                      class="filter-btn"
+                      data-status="completed"
+                      onclick="filterBuyerOrders('completed', this)"
+                    >
+                      Completed
+                    </button>
+                  </div>
+                </div>
+                <div class="order-list" id="allOrders">
+                  <div class="empty-state">
+                    <i class="fa-solid fa-clipboard-list"></i>
+                    <p>No orders found</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Saved Items Tab -->
+            <div class="dash-tab" id="savedTab">
+              <div class="dash-card">
+                <div class="dash-card-header">
+                  <h2 class="dash-card-title">Saved Items</h2>
+                </div>
+                <div class="saved-items-grid" id="savedItems">
+                  <div class="empty-state">
+                    <i class="fa-regular fa-heart"></i>
+                    <p>No saved items yet</p>
+                    <a
+                      href="index.html#products"
+                      class="btn-primary btn-inline-flex"
+                    >
+                      Browse Products
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </main>
+        </div>
+      </div>
+    </div>
+
+    <!-- TOAST -->
+    <div id="toast">
+      <i class="fa-solid fa-circle-check"></i>
+      <span id="toastMsg"></span>
+    </div>
+
+    <script src="./JAVASCRIPT/utils.js"></script>
+    <script src="./JAVASCRIPT/navbar.js"></script>
+    <script src="./JAVASCRIPT/buyer-dashboard.js"></script>
+  </body>
+</html>
