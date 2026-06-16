@@ -34,7 +34,7 @@ const PRODUCTS = [
   {
     id: 4, name: 'Red Palm Oil — 5 Litres',
     category: 'spices', 
-    image: './IMAGES/palm oil.jpeg?w=400&h=300&fit=crop',
+    image: './IMAGES/Palm oil.jpeg?w=400&h=300&fit=crop',
     price: 95, oldPrice: null,
     seller: 'Salone Organics', location: 'Moyamba',
     badge: null, rating: 4.6, reviews: 203,
