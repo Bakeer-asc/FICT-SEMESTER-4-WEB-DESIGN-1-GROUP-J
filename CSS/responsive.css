@@ -1,0 +1,96 @@
+/* 
+   All Media Queries in one place
+    */
+
+/* ── Large Screens ── */
+@media (max-width: 1200px) {
+  .dash-grid { grid-template-columns: 220px 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+
+/* ── Tablets ── */
+@media (max-width: 1024px) {
+  .dash-grid { grid-template-columns: 1fr; }
+  .dash-sidebar { position: static; margin-bottom: 1.5rem; }
+  .dash-menu { 
+    flex-direction: row; 
+    overflow-x: auto; 
+    gap: 0.5rem; 
+    padding-bottom: 0.5rem;
+  }
+  .dash-menu-item { white-space: nowrap; }
+  .order-card-body { grid-template-columns: 1fr 1fr; }
+}
+
+/* ── Mobile Landscape / Small Tablets ── */
+@media (max-width: 900px) {
+  /* Navbar */
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .btn-nav-cta { display: none; }
+
+  /* Hero */
+  .hero-content { grid-template-columns: 1fr; gap: 3rem; text-align: center; }
+  .hero-buttons { justify-content: center; }
+  .hero-trust { justify-content: center; }
+  .hero-card-wrap { display: none; }
+  .hero-stats { justify-content: center; }
+  .stat-divider { display: none; }
+
+  /* Steps */
+  .steps-wrap { grid-template-columns: 1fr; gap: 1rem; }
+  .step-connector { display: none; }
+
+  /* Register */
+  .register-wrap { grid-template-columns: 1fr; gap: 2.5rem; }
+  .register-info { text-align: center; }
+  .perk-list { align-items: center; }
+  .trust-bar { justify-content: center; }
+
+  /* Dashboard Header */
+  .dash-header-inner { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .dash-nav { flex-wrap: wrap; }
+  .stats-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ── Mobile Phones ── */
+@media (max-width: 640px) {
+  .section { padding: 4rem 0; }
+  .hero-content { padding: 3rem 1rem; }
+  .hero-buttons { flex-direction: column; align-items: stretch; }
+  .hero-stats { flex-direction: row; flex-wrap: wrap; gap: 1.5rem; justify-content: center; }
+
+  .form-row { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; gap: 2rem; text-align: center; }
+  .footer-bottom-inner { flex-direction: column; text-align: center; gap: 1rem; }
+  .footer-legal { justify-content: center; }
+
+  .categories-grid { grid-template-columns: 1fr; }
+  .products-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 1rem; }
+  
+  /* Dashboard Mobile */
+  .dash-content { padding: 1rem; }
+  .dash-card { padding: 1.25rem; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .order-item { flex-direction: column; text-align: center; gap: 1rem; }
+  .order-price { text-align: center; }
+  .order-card-body { grid-template-columns: 1fr; gap: 0.75rem; text-align: center; }
+  .order-customer { justify-content: center; }
+  .dash-card-header { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .search-box { width: 100%; }
+  .search-box input { width: 100%; }
+  .saved-items-grid { grid-template-columns: 1fr 1fr; }
+  
+  /* Cart Drawer Mobile */
+  .cart-drawer { width: 100vw; }
+}
+
+/* ── Very Small Screens ── */
+@media (max-width: 380px) {
+  .products-grid { grid-template-columns: 1fr; }
+  .saved-items-grid { grid-template-columns: 1fr; }
+  .dash-nav { flex-direction: column; width: 100%; }
+  .dash-nav-btn { width: 100%; text-align: center; }
+  .trust-bar { flex-direction: column; gap: 0.75rem; align-items: center; }
+}
